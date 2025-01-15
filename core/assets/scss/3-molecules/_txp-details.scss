@@ -1,0 +1,38 @@
+//_m_txp-details.scss
+@use "../2-atoms/beam";
+
+.txp-details {
+  &[open] {
+    margin-bottom: var(--base-unit--b);
+  }
+
+  .toggle {
+    @extend %beam !optional;
+    gap: var(--base-unit) var(--base-unit--s);
+
+    >div {
+      position: relative;
+      width: max-content;
+    }
+
+  }
+
+  [type="checkbox"] {
+    margin-inline-end: var(--base-unit--ss);
+  }
+
+  .date {
+    margin-bottom: var(--base-unit);
+  }
+
+  .time,
+  .comment-annotate {
+    margin-bottom: var(--base-unit--s);
+  }
+}
+
+.txp-option-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

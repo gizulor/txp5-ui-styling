@@ -1,0 +1,14 @@
+.close,
+button.close {
+  border: 0;
+  padding: 0;
+  color: currentcolor;
+  position: relative;
+  &:hover {
+    background-color: inherit;
+  }
+}
+
+.ui-icon-close {
+  //margin-inline-start: var(--base-unit--s);
+}

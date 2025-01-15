@@ -1,0 +1,58 @@
+@use "../2-atoms/beam";
+.txp-nav-toggle {
+  // redundant
+  display: none;
+}
+
+.txp-skip-link {
+  position: absolute;
+  display: block;
+  transform: translateY(-100vh);
+}
+
+.txp-header,
+.txp-nav {
+  @extend %beam !optional;
+  gap: var(--base-unit--ss) var(--base-unit);
+}
+
+.txp-header a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.data-dropdown {
+  display: contents;
+  list-style: none;
+
+  .selected>a {
+    font-weight: var(--font-heavy);
+  }
+}
+
+.dropdown {
+  position: relative;
+
+  &>a:hover {
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+    position: absolute;
+    display: none;
+    padding: var(--base-unit--s) var(--base-unit);
+    margin-left: calc(var(--base-unit) * -1);
+    width: max-content;
+    background: var(--clr-bg);
+  }
+
+  &:hover ul,
+  &:focus-within ul {
+    display: block;
+    z-index: 1;
+  }
+}

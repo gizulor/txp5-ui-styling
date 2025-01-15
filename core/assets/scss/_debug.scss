@@ -1,0 +1,56 @@
+// _0_debug.scss
+
+.u_debug,
+.u_debug-plain {
+  outline: 1px solid rgba(silver, .5);
+
+  * {
+      outline: 1px dotted rgba(silver, .5);
+  }
+
+}
+.u_debug {
+
+    &:before,
+    &:after {
+        position: absolute;
+        display: block;
+        top: 0;
+        z-index: 1;
+        bottom: 0;
+        font-size: xx-small;
+    }
+
+    &:before {
+        content: 'mobile';
+        left: 380px;
+        border-left: var(--border-width) dotted var(--green-500);
+        color: var(--green-500);
+    }
+
+    &:after {
+        content: 'desktop';
+        left: 980px;
+        border-left: var(--border-width) dotted var(--yellow-500);
+        color: var(--yellow-500);
+    }
+
+    &__open {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 0;
+        width: var(--base-unit);
+        text-decoration: none;
+        height: var(--base-unit);
+    }
+
+    &__sibling {
+        font-size: xx-small;
+        //text-align: right;
+        opacity: .25;
+        background: rgba(silver, .5);
+        padding: var(--base-unit--ss);
+    }
+
+}

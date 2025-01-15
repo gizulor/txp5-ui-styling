@@ -1,0 +1,30 @@
+@use "../2-atoms/beam";
+.messagepane {
+  // &:empty {
+  //   display: none;
+  // }
+
+}
+
+
+.messageflash {
+  @extend %beam !optional;
+  padding: var(--base-unit--s) var(--base-unit);
+  font-family: var(--serif);
+  overflow: auto;
+  strong {
+    font-family: var(--sans);
+  }
+  &.success {
+    background-color: var(--clr-success);
+    color: var(--white);
+  }
+  &.warning {
+    background-color: var(--clr-warning);
+  }
+
+  &.error {
+    background-color: var(--clr-error);
+    color: var(--white);
+  }
+}

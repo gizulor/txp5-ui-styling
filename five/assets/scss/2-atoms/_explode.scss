@@ -1,0 +1,18 @@
+//.txp-body,
+.txp-body > form,
+.txp-layout,
+.txp-layout-4col-3span,
+.txp-layout-4col-altz,
+#main_content,
+#pane-text,
+.explode
+ {
+  display: contents;
+}
+
+//@media (min-width: 640px) {
+  .txp-layout-4col-altz,
+  #supporting_contentz {
+    display: content;
+  }
+//}

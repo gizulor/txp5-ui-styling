@@ -1,0 +1,8 @@
+@use "beam";
+.txp-footer {
+  @extend %beam !optional;
+  gap: var(--base-unit);
+  .ui-icon {
+    margin-inline: var(--base-unit);
+  }
+}

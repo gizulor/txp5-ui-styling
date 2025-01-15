@@ -1,0 +1,10 @@
+// huey admin theme
+
+// import core directly if you're happy with core configs
+//@use "../../core/assets/scss/textpattern5.scss";
+
+// settings
+@use "0-settings/config";
+
+ @use "4-organisms/header-huey";
+ @use "5-layouts/huey";

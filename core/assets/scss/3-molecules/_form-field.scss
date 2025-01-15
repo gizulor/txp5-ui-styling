@@ -1,0 +1,28 @@
+@use "../2-atoms/beam";
+.txp-form-field {
+  //width: max-content;
+  max-width:var(--type-measure);
+  button {
+   // background-color: var(--clr-brand);
+  }
+}
+
+.txp-form-field-label {
+  @extend %beam !optional;
+  justify-content: space-between;
+  margin-bottom: var(--base-unit--s);
+}
+
+.txp-form-field-value {
+  //display: contents;
+  // border: 1px solid red;
+  // width: 100%;
+}
+
+.txp-textarea-options {
+
+}
+
+.textfilter-help {
+  margin-inline-end: var(--base-unit);
+}

@@ -1,0 +1,62 @@
+// to brics
+body {
+  //  color: var(--clr-txt);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+  gap: var(--base-unit--b);
+  grid-auto-flow: dense;
+  padding-top: var(--base-unit--b);
+  align-items: center;
+  margin:  var(--base-unit--s);
+}
+
+input#title {
+  width: 100%;
+}
+
+.txp-form-field {
+  grid-column: span 2;
+}
+
+.txp-header {
+  //background-color: oklch(from var(--clr-brand) .8 .05 180);
+  grid-column: span 2;
+  //flex-direction: column;
+}
+
+
+.messagepane {
+  grid-column-end: -1;
+}
+
+.txp-save-zone {
+  grid-column-end: -1;
+  grid-row-start: 3;
+}
+
+.article-details {
+  display: none !important;
+}
+
+.txp-header,
+.txp-logout,
+.txp-header>h1,
+.txp-heading,
+.txp-footer
+{
+  padding: var(--base-unit);
+}
+
+#pane-text,
+#supporting_content {
+  >* {
+    padding: var(--base-unit);
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+  }
+}
+
+.txp-footer {
+  display: none; // temp
+}

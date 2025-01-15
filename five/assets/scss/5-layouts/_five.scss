@@ -1,0 +1,15 @@
+$break1: 720px;
+
+body {
+  --vmeasure: 15vh;
+  padding: 0 var(--base-unit);
+}
+
+.txp-footer {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  margin-block-start: var(--base-unit);
+  padding: var(--base-unit) 0;
+  border-top: var(--border-width) solid var(--clr-text);
+}
+

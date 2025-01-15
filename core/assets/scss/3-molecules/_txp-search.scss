@@ -1,0 +1,51 @@
+// *>:has(.txp-search) {
+//   container-type: inline-size;
+// }
+@use "../2-atoms/beam";
+.txp-search {
+  @extend %beam !optional;
+  column-gap: var(--base-unit);
+  &-buttons {
+    display: contents;
+  }
+
+  &-button {
+   // background-color: var(--clr-brand);
+    //grid-area: searchbut;
+  }
+
+  &-input {
+    //grid-area: searchinput;
+  }
+
+  &-options {
+    //grid-area: searchopts;
+    text-align: start;
+  }
+
+  details {
+    width: max-content;
+  }
+  summary {
+    margin-bottom: 0;
+  }
+  .ui-icon,
+  .ui-button-icon-space {
+    //display: none;
+  }
+  .txp-dropdown {
+    padding-left: 0;
+    input {
+      margin-inline-end: var(--base-unit--s);
+    }
+  }
+  // this version is more grid-like, and changes the feel entirely.
+  // worth exploring further…
+
+  // @container (min-width: #{$small}) {
+  //   display: grid;
+  //   grid-template-areas: 'searchinput searchbut'
+  //     'searchopts .';
+  //   grid-template-columns: auto 1fr;
+  // }
+}

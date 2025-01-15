@@ -1,0 +1,46 @@
+// five admin theme
+
+// import core
+@use "../../../core/assets/scss/_debug.scss";
+// settings
+@use "../../../core/assets/scss/0-settings/config";
+@use "../../../core/assets/scss/0-settings/colours";
+@use "../../../core/assets/scss/0-settings/mixins";
+// base
+@use "../../../core/assets/scss/1-base/reset";
+@use "../../../core/assets/scss/1-base/body";
+@use "../../../core/assets/scss/1-base/tables";
+@use "../../../core/assets/scss/1-base/forms";
+@use "../../../core/assets/scss/1-base/typeset";
+@use "../../../core/assets/scss/1-base/details";
+// atoms
+@use "../../../core/assets/scss/2-atoms/beam";
+
+
+@use "../../../core/assets/scss/2-atoms/jqui";
+@use "../../../core/assets/scss/2-atoms/icon";
+@use "../../../core/assets/scss/2-atoms/txp-heading";
+@use "../../../core/assets/scss/2-atoms/close";
+@use "../../../core/assets/scss/2-atoms/nav-tertiary";
+@use "../../../core/assets/scss/2-atoms/prev-next";
+@use "../../../core/assets/scss/2-atoms/txp-footer";
+// molecules
+@use "../../../core/assets/scss/3-molecules/dropdown";
+@use "../../../core/assets/scss/3-molecules/messagepane";
+@use "../../../core/assets/scss/3-molecules/form-field";
+@use "../../../core/assets/scss/3-molecules/txp-search";
+@use "../../../core/assets/scss/3-molecules/txp-save-zone";
+@use "../../../core/assets/scss/3-molecules/txp-details";
+@use "../../../core/assets/scss/3-molecules/com-image";
+// organisms
+@use "../../../core/assets/scss/4-organisms/dialog";
+@use "../../../core/assets/scss/4-organisms/header";
+
+// additions to core
+@use "2-atoms/explode";
+//@use "3-molecules/messagepane-5";
+//@use "4-organisms/header-j";
+// layout
+
+@use "5-layouts/jekyll";
+@use "5-layouts/content-article";

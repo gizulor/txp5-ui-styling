@@ -1,0 +1,43 @@
+:root {
+    // Variable font-scaling based on rems
+    // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+    --min-fs: .8125;
+    --max-fs: 1.125;
+    --min-vw: 20;
+    --max-vw: 108;
+
+    // Type
+    --sans: system-ui, sans-serif;
+    --serif: Baskerville, serif;
+    --mono: ui-monospace, monospace;
+    --font-body: var(--sans);
+    --font-input: var(--sans);
+    --font-normal: 300;
+    --font-heavy: 500;
+    --base-line-height: 1.5;
+
+     --type-measure: 72ch;
+     --border-width: 1px;
+
+
+    // UI spacing
+    --base-unit: 1.5rem;
+    --base-unit--ss: calc(var(--base-unit) / 4);
+    --base-unit--s: calc(var(--base-unit) / 2);
+    --base-unit--b: calc(var(--base-unit) * 2);
+
+    // UI colour assignments
+    --clr-text: var(--black);
+    --clr-bg: var(--white);
+    --clr-brand: var(--yellow-500);
+    --clr-border: var(--clr-text);
+   --clr-success: var(--green-600);
+    --clr-warning: var(--yellow-500);
+    --clr-error: var(--red-500);
+
+
+    // @media (prefers-color-scheme: dark) {
+    //     --clr-text: var(--white);
+    //     --clr-bg: var(--black);
+    // }
+}

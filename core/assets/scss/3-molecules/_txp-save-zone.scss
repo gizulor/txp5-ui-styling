@@ -1,0 +1,18 @@
+@use "../2-atoms/beam";
+.txp-save-zone {
+  @extend %beam !optional;
+  gap:var(--base-unit);
+  .ui-icon {
+    display: none;
+  }
+  .txp-actions {
+    display: contents;
+  }
+}
+
+.txp-article-view,
+.txp-clone {
+  // trying to hide &nbsp; in string
+  //width: calc(max-content - 1em);
+  //overflow: hidden;
+}

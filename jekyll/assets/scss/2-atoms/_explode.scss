@@ -1,0 +1,23 @@
+//.txp-header,
+//.txp-nav,
+//.txp-nav .dropdown,
+.txp-body,
+.txp-body>form,
+.txp-layout,
+.txp-layout-4col-3span,
+#main_content,
+//#pane-text,
+.explode,
+//.txp-layout-4col-alt,
+#supporting_content {
+  display: contents;
+
+}
+  @media (orientation: landscape) and (min-width: 640px){
+.txp-header {
+ // display: inherit;
+}
+}
+
+//@media (min-width: 640px) {
+//}

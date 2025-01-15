@@ -1,0 +1,74 @@
+@use "../2-atoms/beam";
+
+// uses jqui/hive naming
+.txp-dialog[open] {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  //max-height: 90vh;
+  border: calc(var(--border-width)*2) solid var(--clr-text);
+  color: var(--clr-text);
+  background: var(--clr-bg);
+  resize: both;
+  overflow: auto;
+
+}
+  .ui-dialog-titlebar {
+    @extend %beam !optional;
+    justify-content: space-between;
+    padding: var(--base-unit) 0;
+    cursor: move;
+  }
+
+
+  .ui-dialog-content {
+    padding-top: var(--base-unit);
+    border-top: var(--border-width) solid var(--clr-border);
+  }
+  .ui-dialog-title {
+    font-size: var(--h4);
+  }
+.ui-dialog-controls {
+    @extend %beam !optional;
+  gap: var(--base-unit);
+}
+
+.txp-textarea-options {
+    @extend %beam !optional;
+}
+
+
+
+#view_modes {
+  details {
+    position: relative;
+    margin-top: var(--base-unit);
+    > div { // Text Preview
+      padding: var(--base-unit);
+    }
+    &[open] {
+      border: var(--border-width) solid var(--clr-border);
+      &#page-preview {
+        iframe {
+          width: 100%;
+          aspect-ratio: 1/1;
+        }
+      }
+    }
+  }
+}
+
+// move elsewhere?
+code.removed {
+  opacity: 0.75;
+  text-decoration-line: line-through;
+}
+
+code.-comment::before {
+  content: "<!--";
+}
+
+code.-comment::after {
+  content: "-->";
+}

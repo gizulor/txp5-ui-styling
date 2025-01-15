@@ -1,0 +1,63 @@
+:root {
+    // Variable font-scaling based on rems
+    // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+    --min-fs: .8125;
+    --max-fs: 1.125;
+    --min-vw: 20;
+    --max-vw: 108;
+
+    // Type
+    --sans: system-ui, sans-serif;
+    --serif: Baskerville, serif;
+    --mono: ui-monospace, monospace;
+    --font-body: var(--sans);
+    --font-input: var(--sans);
+    --font-normal: 200;
+    --font-heavy: 400;
+    --base-line-height: 1.5;
+
+     --type-measure: 72ch;
+     --border-width: .5px;
+
+
+    // UI spacing
+    --base-unit: 1.5rem;
+    --base-unit--ss: calc(var(--base-unit) / 4);
+    --base-unit--s: calc(var(--base-unit) / 2);
+    --base-unit--b: calc(var(--base-unit) * 2);
+
+    // UI colour assignments
+    --clr-text: oklch(from var(--black) l c h / .66);
+    --clr-bg: oklch(from var(--grey-200) .9 c h);
+    --clr-brand: var(--yellow-500);
+    --clr-border: oklch(from var(--clr-text) l c h / .33);
+    --clr-success: var(--green-800);
+    --clr-warning: var(--yellow-500);
+    --clr-error: var(--red-500);
+
+    --clr-panel: oklch(from var(--white) l c h / .66);
+    --clr-content: var(--red-500);
+    --clr-presentation: var(--blue-600);
+    --clr-admin: var(--green-600);
+    --clr-extensions: oklch(from var(--yellow-500) .75 c h);
+    @media (prefers-color-scheme: dark) {
+        --clr-text: var(--white);
+        --clr-bg: var(--black);
+    }
+    // doesn't belong here
+    // & {
+    //     --template-cols: 36ch 1fr 36ch;
+    //     --template-rows: 15vh repeat(8, auto);
+    //     --vh-default: 15vh;
+    // }
+    // --mobile: 380px;
+    // --desktop: 980px;
+}
+// $mobile: 380px;
+// $small: 480px;
+// $medium: 720px;
+// $desktop: 980px;
+
+//@media (orientation: landscape) {}
+//@media (orientation: portrait) {}
+

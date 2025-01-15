@@ -1,0 +1,10 @@
+@use "beam";
+
+.nav-tertiary {
+  @extend %beam !optional;
+  margin-bottom: var(--base-unit);
+}
+
+.navlink-disabled {
+  opacity: .5;
+}

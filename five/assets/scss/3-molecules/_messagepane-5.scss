@@ -1,7 +1,12 @@
 .messagepane {
   grid-column-start: 1;
   grid-column-end: -1;
-  &:empty {
-    position: absolute;
-  }
+  // &:empty {
+  //   position: absolute;
+  // }
+
+}
+
+.messageflash {
+  display: none; // demo only
 }

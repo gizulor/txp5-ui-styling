@@ -1,1 +1,1 @@
-var $;$(document).ready((function(){function t(){window.innerWidth>720?($("#supporting_content").attr("open",""),$("#supporting_content > summary").hide()):($("#supporting_content").removeAttr("open"),$("#supporting_content > summary").show())}const n=function(t,n=100){let e;return(...o)=>{clearTimeout(e),e=setTimeout((()=>{t.apply(this,o)}),n)}}((()=>t()));window.addEventListener("resize",n),t()}));
+var $;$(document).ready((function(){$(".txp-save").click((function(){$(".messageflash").css("display","block")}))}));

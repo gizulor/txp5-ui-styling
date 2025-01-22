@@ -1018,8 +1018,9 @@ code.-comment::after {
   grid-column-start: 1;
   grid-column-end: -1;
 }
-.messagepane:empty {
-  position: absolute;
+
+.messageflash {
+  display: none;
 }
 
 .txp-header {

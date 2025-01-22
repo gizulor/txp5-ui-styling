@@ -16,26 +16,28 @@
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
+  //line-height: 1;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   display: inline-block;
-  width: 0;
-  line-height: inherit;
-  height: 1em;
-  overflow: hidden;
-  margin-inline-end: 1em;
-  //position: relative;
+  font-size: 0; // hide text
   &:before {
-    position: absolute;
-    //top: var(--base-unit--ss);
+    font-size: initial;
+  }
+
+  &:hover:before {
+    background-color: var(--clr-brand);
+   border-radius: 50%;
+   // aspect-ratio: 1/1;
   }
 
 }
 
+
+.ui-icon-arrowthickstop-1-s:before,
 .ui-icon-add:before,
 .ui-icon-plus:before {
   content: "\e900";
@@ -64,6 +66,8 @@
 .ui-icon-info:before {
   content: "\e908";
 }
+
+.ui-icon-arrowthickstop-1-n:before,
 .ui-icon-subtract:before {
   content: "\e909";
 }

@@ -1,7 +1,12 @@
 @use "../2-atoms/beam";
 
+
 // uses jqui/hive naming
-.txp-dialog[open] {
+.txp-dialog {
+    display: none;
+  &[open] {
+    display: initial;
+  }
   position: absolute;
   z-index: 1;
   top: 0;

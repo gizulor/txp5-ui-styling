@@ -1,0 +1,25 @@
+.txp-actions {
+  display: flex;
+  gap: var(--base-unit);
+  margin-bottom: var(--base-unit);
+  button {
+    border: 0;
+    padding: 0;
+    &:hover {
+      background-color: var(--clr-bg);
+    }
+  }
+  .ui-icon {
+    //display: inline-block;
+    display: none;
+    margin-inline-end: var(--base-unit);
+  }
+
+}
+#supporting_content:has(.txp-actions button:hover)
+.txp-summary a:before {
+  border: var(--border-width) solid var(--clr-brand);
+  margin: calc( var(--border-width) * -1);
+  margin-right: calc(var(--base-unit--ss) + var(--border-width) * -1);
+  //background-color: var(--clr-brand);
+}

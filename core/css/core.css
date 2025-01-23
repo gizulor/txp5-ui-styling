@@ -46,7 +46,7 @@
 
 :root {
   --min-fs: .8125;
-  --max-fs: 1.125;
+  --max-fs: 1;
   --min-vw: 20;
   --max-vw: 108;
   --sans: system-ui, sans-serif;

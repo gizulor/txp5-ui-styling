@@ -6,11 +6,15 @@ $break1: 720px;
   border-bottom: var(--border-width) solid var(--clr-text);
   min-height: var(--vmeasure);
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'txp  logout'
+    'sitename sitename'
+    'nav nav'
+  ;
 
   @media (min-width: $break1) {
     position: sticky;
-    top: calc((var(--base-unit) * 2.5) - 15vh);
+    top: calc((var(--base-unit) * 2.5) - var(--vmeasure));
     background-color: var(--clr-bg);
     grid-template-columns: 36ch 1fr auto;
     align-content: end;
@@ -38,10 +42,11 @@ $break1: 720px;
   margin-left: 0;
 
   &:before {
+    margin-top: var(--border-width);
     content: '';
     position: absolute;
     border-left: var(--border-width) solid var(--clr-text);
-    height: 100%;
+    height: calc(100% - var(--base-unit));
   }
 
   li {
@@ -49,13 +54,17 @@ $break1: 720px;
   }
 }
 
-.txp-logout {
-  grid-column-end: -1;
-}
+// .dropdown {
+//
+//   &:hover ul,
+//   &:focus-within ul {
+//     background-color: var(--clr-brand);
+//   }
+// }
+
 
 .txp-view-site-name {
-  grid-column-start: 1;
-  grid-row-start: 1;
+  grid-area: sitename;
 
   a:after {
     content: '\e906';
@@ -63,17 +72,11 @@ $break1: 720px;
   }
 }
 
-@media (min-width: $break1) {
-  .txp-nav {
-    grid-area: nav;
-  }
+.txp-nav {
+  grid-area: nav;
+}
 
-  .txp-logout {
-    grid-area: logout;
-    justify-self: end;
-  }
-
-  .txp-view-site-name {
-    grid-area: sitename;
-  }
+.txp-logout {
+  grid-area: logout;
+  justify-self: end;
 }

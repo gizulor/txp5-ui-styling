@@ -999,6 +999,7 @@ code.-comment::after {
   z-index: 1;
 }
 
+.txp-view-site,
 .txp-body > form,
 .txp-layout,
 .txp-layout-4col-3span,
@@ -1029,12 +1030,13 @@ code.-comment::after {
   border-bottom: var(--border-width) solid var(--clr-text);
   min-height: var(--vmeasure);
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "txp  logout" "sitename sitename" "nav nav";
 }
 @media (min-width: 720px) {
   .txp-header {
     position: sticky;
-    top: calc(var(--base-unit) * 2.5 - 15vh);
+    top: calc(var(--base-unit) * 2.5 - var(--vmeasure));
     background-color: var(--clr-bg);
     grid-template-columns: 36ch 1fr auto;
     align-content: end;
@@ -1060,40 +1062,33 @@ code.-comment::after {
   margin-left: 0;
 }
 .dropdown ul:before {
+  margin-top: var(--border-width);
   content: "";
   position: absolute;
   border-left: var(--border-width) solid var(--clr-text);
-  height: 100%;
+  height: calc(100% - var(--base-unit));
 }
 .dropdown ul li {
   margin-inline-start: var(--base-unit--s);
 }
 
-.txp-logout {
-  grid-column-end: -1;
-}
-
 .txp-view-site-name {
-  grid-column-start: 1;
-  grid-row-start: 1;
+  grid-area: sitename;
 }
 .txp-view-site-name a:after {
   content: "\e906";
   font-family: "core-line";
 }
 
-@media (min-width: 720px) {
-  .txp-nav {
-    grid-area: nav;
-  }
-  .txp-logout {
-    grid-area: logout;
-    justify-self: end;
-  }
-  .txp-view-site-name {
-    grid-area: sitename;
-  }
+.txp-nav {
+  grid-area: nav;
 }
+
+.txp-logout {
+  grid-area: logout;
+  justify-self: end;
+}
+
 body {
   --vmeasure: 15vh;
   padding: 0 var(--base-unit);

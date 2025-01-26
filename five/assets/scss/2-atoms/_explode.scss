@@ -2,7 +2,8 @@
 .txp-body > form,
 .txp-layout,
 .txp-layout-4col-3span,
-.txp-layout-4col-altz,
+.txp-layout-4col-alt,
+#supporting_content,
 #main_content,
 #pane-text,
 .explode
@@ -11,8 +12,8 @@
 }
 
 //@media (min-width: 640px) {
-  .txp-layout-4col-altz,
-  #supporting_contentz {
-    display: content;
-  }
+  // .txp-layout-4col-altz,
+  // #supporting_contentz {
+  //   display: content;
+  // }
 //}

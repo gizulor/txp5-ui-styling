@@ -1,4 +1,6 @@
 #txp-image-group-content {
+  z-index: 0;
+  position: relative;
   *>div {
     margin-top: var(--base-unit);
   }
@@ -37,8 +39,8 @@
 .com-image-container {
   //margin: var(--base-unit) 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--base-unit--s);
   p {
     position: relative;
   }

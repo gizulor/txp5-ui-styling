@@ -1,1 +1,1 @@
-var $;$(document).ready((function(){$(".txp-save").click((function(){$(".messageflash").css("display","block")}))}));
+var $;$(document).ready((function(){$(".txp-save").click((function(){$(".messageflash").css("display","block")})),$(".toggle[style]").css("display","flex")}));

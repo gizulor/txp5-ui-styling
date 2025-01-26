@@ -4,7 +4,6 @@ $break1: 720px;
   margin-top: var(--base-unit--s);
   padding-bottom: var(--base-unit--s);
   border-bottom: var(--border-width) solid var(--clr-text);
-  min-height: var(--vmeasure);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 'txp  logout'
@@ -13,8 +12,9 @@ $break1: 720px;
   ;
 
   @media (min-width: $break1) {
+  min-height: var(--vmeasure);
     position: sticky;
-    top: calc((var(--base-unit) * 2.5) - var(--vmeasure));
+    top: calc(var(--base-unit--b) - var(--vmeasure));
     background-color: var(--clr-bg);
     grid-template-columns: 36ch 1fr auto;
     align-content: end;

@@ -7,6 +7,9 @@ $(document).ready(function() {
     $('.messageflash').css('display','block');
   });
 
+  // temp hack to override jqui behaviour
+  $('.toggle[style]').css('display', 'flex');
+
 //   function debounce(func, timeout = 100) {
 //     let timer;
 //     return (...args) => {

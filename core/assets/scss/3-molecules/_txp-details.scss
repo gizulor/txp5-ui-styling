@@ -2,10 +2,10 @@
 @use "../2-atoms/beam";
 
 .txp-details {
-
   .hidden {
     display: none;
   }
+
   &:has(.expanded) {
     margin-bottom: var(--base-unit--b);
   }
@@ -16,7 +16,7 @@
 
     >div {
       position: relative;
-      width: max-content;
+      //width: max-content;
     }
   }
 
@@ -32,22 +32,27 @@
   .comment-annotate {
     margin-bottom: var(--base-unit--s);
   }
+
+  .reset-time {
+    display: flex;
+    text-wrap: balance;
+  }
 }
 
 .txp-summary {
-  margin-bottom: var(--base-unit--s);
 
+  //margin-bottom: var(--base-unit--s);
   a {
     text-decoration: none;
-  &:before {
-    font-family: 'core-line';
-    content: '\e900';
-    font-size: initial;
-    margin-inline-end: var(--base-unit--ss);
-    border-radius: 50%;
-  }
-  }
 
+    &:before {
+      font-family: 'core-line';
+      content: '\e900';
+      font-size: initial;
+      margin-inline-end: var(--base-unit--ss);
+      border-radius: 50%;
+    }
+  }
 
   &.expanded {
     margin-bottom: var(--base-unit--ss);

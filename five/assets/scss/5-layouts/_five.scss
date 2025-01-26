@@ -1,8 +1,17 @@
-$break1: 720px;
+$break1: 640px;
+$break2: 960px;
 
 body {
   --vmeasure: 15vh;
-  padding: 0 var(--base-unit);
+  padding: 0 var(--base-unit--s);
+
+  @media (min-width: $break1) {
+    padding: 0 var(--base-unit);
+  }
+  @media (min-width: $break2) {
+    padding: 0 var(--base-unit--b);
+  }
+
 }
 
 .txp-footer {
@@ -12,4 +21,3 @@ body {
   padding: var(--base-unit) 0;
   border-top: var(--border-width) solid var(--clr-text);
 }
-

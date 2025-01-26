@@ -45,7 +45,7 @@
     position: absolute;
     display: none;
     padding: var(--base-unit--s) var(--base-unit);
-    margin-left: calc(var(--base-unit) * -1);
+    margin-left: var(--base-unit--neg);
     width: max-content;
     background: var(--clr-bg);
   }

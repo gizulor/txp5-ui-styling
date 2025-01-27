@@ -4,6 +4,7 @@ button,
   cursor: pointer;
   border: var(--border-width) solid var(--clr-border);
   color: var(--clr-text);
+
   padding: var(--base-unit--ss);
   // &:hover {
   //   background-color: var(--clr-brand);
@@ -13,6 +14,9 @@ button,
 [type="submit"] {
   padding-left: var(--base-unit--s);
   padding-right: var(--base-unit--s);
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--clr-brand);
 }
 label {
   display: inline-block; // allow margins, and for beam or column placement by parent class
@@ -24,6 +28,7 @@ textarea {
   padding: var(--base-unit--ss);
   border: var(--border-width) solid var(--clr-border);
   border-radius: 0;
+  color: inherit;
   @media (max-width: 960px) {
     padding: calc(var(--base-unit--ss)/2) var(--base-unit--ss);
   }
@@ -107,11 +112,6 @@ select {
 //   text-align: left;
 //   cursor: pointer;
 // }
-[type="submit"] {
-  text-align: left;
-  cursor: pointer;
-  background-color: var(--clr-brand);
-}
 
 // .comThanks,
 // .comError {}

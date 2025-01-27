@@ -1,12 +1,15 @@
 #txp-image-group-content {
   z-index: 0;
   position: relative;
+
   *>div {
     margin-top: var(--base-unit);
   }
+
   input {
     width: 100%;
   }
+
   button {
     border: 0;
 
@@ -29,6 +32,7 @@
     width: 100%;
     padding: var(--base-unit);
     text-align: center;
+
     &:hover {
       color: var(--clr-brand);
       cursor: pointer;
@@ -39,10 +43,16 @@
 .com-image-container {
   //margin: var(--base-unit) 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap: var(--base-unit--s);
+  align-items: start;
+
   p {
     position: relative;
+  }
+
+  img {
+    height: auto;
   }
 
   .destroy {
@@ -50,6 +60,10 @@
     right: var(--base-unit--ss);
     top: var(--base-unit--ss);
     color: var(--clr-bg);
+   @media (prefers-color-scheme: dark) {
+    color: var(--clr-text);
+
+   }
 
     &:hover {
       color: var(--clr-warning);

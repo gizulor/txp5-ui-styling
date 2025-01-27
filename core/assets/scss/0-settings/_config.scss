@@ -26,6 +26,8 @@
    --base-unit--b: calc(var(--base-unit) * 2);
 
    // UI colour assignments
+
+
    --clr-text: var(--black);
    --clr-bg: var(--white);
    --clr-brand: var(--yellow-500);
@@ -33,9 +35,12 @@
    --clr-success: var(--green-600);
    --clr-warning: var(--yellow-500);
    --clr-error: var(--red-500);
+   //color-scheme: light dark;
 
-   // @media (prefers-color-scheme: dark) {
-   //     --clr-text: var(--white);
-   //     --clr-bg: var(--black);
-   // }
+   @media (prefers-color-scheme: dark) {
+       --clr-text: oklch(from var(--white) .9 c h);
+       --clr-bg: oklch(from var(--black) .3 c h);
+       --clr-brand: oklch(from var(--yellow-500) .6 c h);
+
+   }
 }

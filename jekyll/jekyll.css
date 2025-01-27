@@ -72,6 +72,13 @@
   --clr-warning: var(--yellow-500);
   --clr-error: var(--red-500);
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-text: oklch(from var(--white) .9 c h);
+    --clr-bg: oklch(from var(--black) .3 c h);
+    --clr-brand: oklch(from var(--yellow-500) .6 c h);
+  }
+}
 
 :root {
   --white: white;
@@ -300,6 +307,9 @@ button,
 [type=submit] {
   padding-left: var(--base-unit--s);
   padding-right: var(--base-unit--s);
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--clr-brand);
 }
 
 label {
@@ -312,6 +322,7 @@ textarea {
   padding: var(--base-unit--ss);
   border: var(--border-width) solid var(--clr-border);
   border-radius: 0;
+  color: inherit;
 }
 @media (max-width: 960px) {
   input,
@@ -383,12 +394,6 @@ select:hover {
 [type=radio] {
   margin: 0;
   accent-color: var(--clr-brand);
-}
-
-[type=submit] {
-  text-align: left;
-  cursor: pointer;
-  background-color: var(--clr-brand);
 }
 
 @keyframes focus {
@@ -869,17 +874,26 @@ button.close:hover {
 
 .com-image-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap: var(--base-unit--s);
+  align-items: start;
 }
 .com-image-container p {
   position: relative;
+}
+.com-image-container img {
+  height: auto;
 }
 .com-image-container .destroy {
   position: absolute;
   right: var(--base-unit--ss);
   top: var(--base-unit--ss);
   color: var(--clr-bg);
+}
+@media (prefers-color-scheme: dark) {
+  .com-image-container .destroy {
+    color: var(--clr-text);
+  }
 }
 .com-image-container .destroy:hover {
   color: var(--clr-warning);

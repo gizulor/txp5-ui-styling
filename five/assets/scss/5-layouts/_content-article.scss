@@ -41,18 +41,19 @@ $break4: 1920px;
     grid-template-columns: 36ch 1fr;
   }
 
-  //   @media (min-width: $break3) {
-  //     grid-template-columns: auto 1fr;
-  //     gap: var(--base-unit--b) var(--vmeasure);
-  //   }
-  //   @media (min-width: $break4) {
-  //     grid-template-columns: auto 1fr 1fr;
-  //     grid-template-areas: 'heading message message'
-  //       'supporting title author'
-  //       'supporting body excerpt'
-  //       'supporting . .'
-  //     ;
-  //     }
+  @media (min-width: $break3) {
+    gap: var(--base-unit--b);
+    grid-template-columns: 36ch 1fr 1fr;
+    grid-template-areas: 'heading message message'
+      'supporting title author'
+      'supporting body excerpt'
+      'supporting . .'
+      'supporting . .'
+    ;
+    align-content: start;
+  }
+
+  @media (min-width: $break4) {}
 }
 
 // area names
@@ -82,6 +83,12 @@ $break4: 1920px;
   display: flex;
   flex-wrap: flex;
   align-items: center;
+
+  @media (min-width: $break3) {
+    min-height: calc(var(--base-unit) *3);
+    align-items: end;
+  }
+
   small {
     font-size: inherit;
   }

@@ -43,7 +43,7 @@ $break4: 1920px;
 
   @media (min-width: $break3) {
     gap: var(--base-unit--b);
-    grid-template-columns: 36ch 1fr 1fr;
+    grid-template-columns: 44ch 1fr 1fr;
     grid-template-areas: 'heading message message'
       'supporting title author'
       'supporting body excerpt'

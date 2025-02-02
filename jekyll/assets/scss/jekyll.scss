@@ -15,12 +15,11 @@
 @use "../../../core/assets/scss/1-base/details";
 // atoms
 @use "../../../core/assets/scss/2-atoms/beam";
-
-
 @use "../../../core/assets/scss/2-atoms/jqui";
 @use "../../../core/assets/scss/2-atoms/icon";
 @use "../../../core/assets/scss/2-atoms/txp-heading";
 @use "../../../core/assets/scss/2-atoms/close";
+@use "../../../core/assets/scss/2-atoms/txp-actions";
 @use "../../../core/assets/scss/2-atoms/nav-tertiary";
 @use "../../../core/assets/scss/2-atoms/prev-next";
 @use "../../../core/assets/scss/2-atoms/txp-footer";
@@ -39,7 +38,7 @@
 // additions to core
 @use "2-atoms/explode";
 //@use "3-molecules/messagepane-5";
-//@use "4-organisms/header-j";
+@use "4-organisms/header-j";
 // layout
 
 @use "5-layouts/jekyll";

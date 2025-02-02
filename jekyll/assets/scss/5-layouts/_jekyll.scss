@@ -3,34 +3,42 @@ $break1: 720px;
 $break2: 960px;
 $break3: 1280px;
 
-.laboratory {
-  //display: none !important;
-}
-
 body {
-
-
   @media (orientation: portrait) {
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    gap: var(--base-unit--s);
-    padding: var(--base-unit--s);
+    display: grid;
+    grid-gap: var(--base-unit);
+    grid-template-columns:  1fr 1fr;
+    align-content: start;
+    padding: 0 var(--base-unit--s);
+
+    grid-template-areas: 'header header'
+      'heading message'
+      'save save'
+      //'actions actions'
+      'support support'
+      'pane pane'
+      'custom custom'
+      'image image'
+      '. .'
+      'recent extras'
+      'footer footer'
+    ;
   }
-  @media (orientation: portrait) and (min-width: $break0){
-   // display: grid;
- gap: var(--base-unit);
-  //grid-template-columns: 24ch 1fr;
-  // grid-template-areas: 'header header'
-  //   'message message'
-  //   'heading support'
-  //   'pane pane '
-  //   'footer footer'
-  // ;
+
+  @media (orientation: portrait) and (min-width: $break0) {
+    // display: grid;
+    gap: var(--base-unit);
+    //grid-template-columns: 24ch 1fr;
+    // grid-template-areas: 'header header'
+    //   'message message'
+    //   'heading support'
+    //   'pane pane '
+    //   'footer footer'
+    // ;
   }
 
   @media (orientation: landscape) {
-   display: grid;
+    display: grid;
     gap: var(--base-unit);
     grid-template-columns: 14ch 1fr;
     grid-template-areas: 'header message'
@@ -44,7 +52,7 @@ body {
   }
 
   @media (orientation: landscape) and (min-width: $break1) {
-  grid-template-columns: 14ch auto 1fr;
+    grid-template-columns: 14ch auto 1fr;
     grid-template-areas: 'header message message'
       'header heading heading'
       'header support pane'
@@ -63,26 +71,29 @@ body {
       'header footer footer footer'
     ;
   }
+
   @media (orientation: landscape) and (min-width: $break3) {
     grid-template-columns: 14ch 24ch 1fr 1fr;
     gap: var(--base-unit) var(--base-unit--b);
-
   }
 }
 
-.txp-form-field-label,
-.author {
-  font-size: smaller;
+
+.txp-header {
+  grid-area: header;
 }
 
 .messagepane {
-  >* {
-    //display: none; // temp
-  }
+  grid-area: message;
+}
+
+.txp-heading {
+  grid-area: heading;
 }
 
 .txp-footer {
+  grid-area: footer;
   margin-top: 15vh;
-  padding-top: var(--base-unit);
+  padding: var(--base-unit) 0;
   border-top: var(--border-width) solid var(--clr-text);
 }

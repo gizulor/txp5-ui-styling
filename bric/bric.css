@@ -1034,6 +1034,11 @@ code.-comment::after {
   z-index: 1;
 }
 
+.txp-view-site-name a:after {
+  content: "\e906";
+  font-family: "core-line";
+}
+
 body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));

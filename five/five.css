@@ -1034,6 +1034,11 @@ code.-comment::after {
   z-index: 1;
 }
 
+.txp-view-site-name a:after {
+  content: "\e906";
+  font-family: "core-line";
+}
+
 .txp-view-site,
 .txp-body > form,
 .txp-layout,
@@ -1106,10 +1111,6 @@ code.-comment::after {
 .txp-view-site-name {
   grid-area: sitename;
 }
-.txp-view-site-name a:after {
-  content: "\e906";
-  font-family: "core-line";
-}
 
 .txp-nav {
   grid-area: nav;
@@ -1165,7 +1166,7 @@ body {
 @media (min-width: 1280px) {
   .txp-body {
     gap: var(--base-unit--b);
-    grid-template-columns: 36ch 1fr 1fr;
+    grid-template-columns: 44ch 1fr 1fr;
     grid-template-areas: "heading message message" "supporting title author" "supporting body excerpt" "supporting . ." "supporting . .";
     align-content: start;
   }

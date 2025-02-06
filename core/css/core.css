@@ -363,6 +363,23 @@ textarea:focus {
   min-height: calc(var(--base-unit) * 12);
 }
 
+.txp-form-field-value:has(textarea) {
+  display: grid;
+}
+.txp-form-field-value:has(textarea):after {
+  content: attr(data-replicated-value) " ";
+  white-space: pre-wrap;
+  visibility: hidden;
+}
+.txp-form-field-value:has(textarea) > textarea {
+  resize: none;
+  overflow: hidden;
+}
+.txp-form-field-value:has(textarea) > textarea, .txp-form-field-value:has(textarea):after {
+  /* Identical styling may be required if modifying core */
+  grid-area: 1/1/2/2;
+}
+
 select {
   width: max-content;
   appearance: none;
@@ -1032,6 +1049,12 @@ code.-comment::after {
 .dropdown:hover ul, .dropdown:focus-within ul {
   display: block;
   z-index: 1;
+}
+
+.txp-view-site {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .txp-view-site-name a:after {

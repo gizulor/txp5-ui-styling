@@ -363,6 +363,23 @@ textarea:focus {
   min-height: calc(var(--base-unit) * 12);
 }
 
+.txp-form-field-value:has(textarea) {
+  display: grid;
+}
+.txp-form-field-value:has(textarea):after {
+  content: attr(data-replicated-value) " ";
+  white-space: pre-wrap;
+  visibility: hidden;
+}
+.txp-form-field-value:has(textarea) > textarea {
+  resize: none;
+  overflow: hidden;
+}
+.txp-form-field-value:has(textarea) > textarea, .txp-form-field-value:has(textarea):after {
+  /* Identical styling may be required if modifying core */
+  grid-area: 1/1/2/2;
+}
+
 select {
   width: max-content;
   appearance: none;
@@ -1034,6 +1051,12 @@ code.-comment::after {
   z-index: 1;
 }
 
+.txp-view-site {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .txp-view-site-name a:after {
   content: "\e906";
   font-family: "core-line";
@@ -1061,9 +1084,9 @@ code.-comment::after {
   .txp-header {
     min-height: var(--vmeasure);
     position: sticky;
-    top: calc(var(--base-unit--b) - var(--vmeasure));
+    top: calc(var(--base-unit) * 2 - var(--vmeasure));
     background-color: var(--clr-bg);
-    grid-template-columns: 36ch 1fr auto;
+    grid-template-columns: 36ch auto auto;
     align-content: end;
     grid-template-areas: "txp  logout logout" "nav nav sitename";
     gap: var(--base-unit);
@@ -1099,6 +1122,7 @@ code.-comment::after {
 
 .txp-view-site {
   grid-area: sitename;
+  justify-self: end;
 }
 
 .txp-nav {
@@ -1110,6 +1134,9 @@ code.-comment::after {
   justify-self: end;
 }
 
+body {
+  --vmeasure: 15vh;
+}
 @media (orientation: portrait) {
   body {
     display: grid;
@@ -1122,7 +1149,7 @@ code.-comment::after {
 }
 @media (orientation: portrait) and (min-width: 480px) {
   body {
-    gap: var(--base-unit);
+    padding: 0 var(--base-unit);
   }
 }
 @media (orientation: landscape) {
@@ -1155,6 +1182,31 @@ code.-comment::after {
   }
 }
 
+@media (orientation: portrait) {
+  .hoz-scroll {
+    display: grid;
+    width: calc(100% + var(--base-unit));
+    margin-left: calc(var(--base-unit--s) * -1);
+    grid-gap: calc(var(--base-unit--s) / 2);
+    grid-template-columns: var(--base-unit--s);
+    grid-auto-flow: column;
+    grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    padding: var(--base-unit--s);
+  }
+  .hoz-scroll:before, .hoz-scroll:after {
+    content: "";
+    width: var(--base-unit--s);
+  }
+}
+@media (orientation: portrait) and (min-width: 480px) {
+  .hoz-scroll {
+    width: calc(100% + var(--base-unit--b));
+    margin-left: calc(var(--base-unit) * -1);
+  }
+}
+
 .txp-header {
   grid-area: header;
 }
@@ -1169,42 +1221,44 @@ code.-comment::after {
 
 .txp-footer {
   grid-area: footer;
-  margin-top: 15vh;
+  margin-top: var(--vmeasure);
   padding: var(--base-unit) 0;
   border-top: var(--border-width) solid var(--clr-text);
 }
 
-.hoz-scroll, #supporting_content {
-  display: grid;
-  width: calc(100% + var(--base-unit));
-  margin-left: calc(var(--base-unit--s) * -1);
-  grid-gap: calc(var(--base-unit--s) / 2);
-  grid-template-columns: var(--base-unit--s);
-  grid-auto-flow: column;
-  grid-auto-columns: calc(45% - var(--base-unit--s) * 2);
-  overflow-x: scroll;
-  scroll-snap-type: x proximity;
-  padding: var(--base-unit--s) 0;
-  background-color: var(--clr-brand);
+@media (orientation: portrait) {
+  .hoz-scroll, #txp-custom-field-group, #supporting_content {
+    display: grid;
+    width: calc(100% + var(--base-unit--b));
+    margin-left: calc(var(--base-unit) * -1);
+    grid-gap: var(--base-unit--s);
+    grid-auto-flow: column;
+    grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    padding: var(--base-unit--s) var(--base-unit);
+  }
 }
-.hoz-scroll input, #supporting_content input,
-.hoz-scroll select,
-#supporting_content select,
-.hoz-scroll textarea,
-#supporting_content textarea {
-  background-color: var(--clr-bg);
-}
-.hoz-scroll:before, #supporting_content:before, .hoz-scroll:after, #supporting_content:after {
-  content: "";
-  width: var(--base-unit--s);
+@media (orientation: portrait) and (min-width: 480px) {
+  .hoz-scroll, #txp-custom-field-group, #supporting_content {
+    width: calc(100% + var(--base-unit--b));
+    margin-left: calc(var(--base-unit) * -1);
+  }
 }
 
-.txp-actions {
-  display: none;
+@media (orientation: portrait) {
+  .txp-actions {
+    display: none;
+  }
 }
-
 #supporting_content {
   grid-area: support;
+  background-color: var(--clr-brand);
+}
+#supporting_content input,
+#supporting_content select,
+#supporting_content textarea {
+  background-color: var(--clr-bg);
 }
 
 .messagepane > * {
@@ -1213,18 +1267,24 @@ code.-comment::after {
 
 #pane-text {
   grid-area: pane;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 36ch 1fr;
+  grid-template-areas: "title author" "excerpt body";
   gap: var(--base-unit);
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
 }
-
 .title {
   grid-area: title;
+}
+.title input {
+  width: 100%;
 }
 
 .author {
   grid-area: author;
   text-wrap: balance;
+  align-self: end;
 }
 
 .body {
@@ -1235,12 +1295,27 @@ code.-comment::after {
   grid-area: excerpt;
 }
 
-.txp-layout-4col-alt {
-  grid-area: support;
-}
-
 .txp-save-zone {
   grid-area: save;
+  position: sticky;
+  top: 0;
+  padding: var(--base-unit--s);
+  margin-left: calc(var(--base-unit--s) * -1);
+  margin-right: calc(var(--base-unit--s) * -1);
+  background: var(--clr-bg);
+  border-bottom: var(--border-width) solid var(--clr-border);
+}
+@media (orientation: portrait) and (min-width: 480px) {
+  .txp-save-zone {
+    padding: var(--base-unit--s) var(--base-unit);
+    margin-left: calc(var(--base-unit) * -1);
+    margin-right: calc(var(--base-unit) * -1);
+  }
+}
+@media (orientation: portrait) and (min-width: 720px) {
+  .txp-save-zone {
+    top: calc(var(--base-unit) * 2);
+  }
 }
 
 #txp-image-group {
@@ -1249,8 +1324,22 @@ code.-comment::after {
 
 #txp-custom-field-group {
   grid-area: custom;
+  background-color: var(--clr-brand);
+}
+#txp-custom-field-group input,
+#txp-custom-field-group select,
+#txp-custom-field-group textarea {
+  background-color: var(--clr-bg);
 }
 
+@media (orientation: portrait) {
+  #txp-custom-field-group-content {
+    display: contents;
+  }
+  #txp-custom-field-group-content .txp-container {
+    display: contents;
+  }
+}
 #txp-recent-group {
   grid-area: recent;
 }

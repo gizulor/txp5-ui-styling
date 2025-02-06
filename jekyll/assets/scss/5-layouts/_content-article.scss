@@ -5,17 +5,7 @@ $break2: 960px;
 $break3: 1280px;
 $break4: 1920px;
 
-.hoz-scroll {
-  display: grid;
-  width: calc(100% + var(--base-unit));
-  margin-left: calc(var(--base-unit--s) *-1);
-  grid-gap: calc(var(--base-unit--s) / 2);
-  grid-template-columns: var(--base-unit--s);
-  grid-auto-flow: column;
-  grid-auto-columns: calc(45% - var(--base-unit--s) * 2);
-  overflow-x: scroll;
-  scroll-snap-type: x proximity;
-  padding: var(--base-unit--s) 0;
+@mixin hozScrollBg {
   background-color: var(--clr-brand);
 
   input,
@@ -23,46 +13,94 @@ $break4: 1920px;
   textarea {
     background-color: var(--clr-bg);
   }
-  &:before,
-  &:after {
-    content: '';
-    width: var(--base-unit--s);
+}
+
+.hoz-scroll {
+  @media (orientation: portrait) {
+    display: grid;
+    width: calc(100% + var(--base-unit--b));
+    margin-left: calc(var(--base-unit) *-1);
+    grid-gap: var(--base-unit--s);
+    grid-auto-flow: column;
+    grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    padding: var(--base-unit--s) var(--base-unit);
+    // &:before,
+    // &:after {
+    //   content: '';
+    //   width: var(--base-unit--s);
+    // }
+  }
+
+  @media (orientation: portrait) and (min-width: $break0) {
+    width: calc(100% + var(--base-unit--b));
+    margin-left: calc(var(--base-unit) *-1);
   }
 }
 
-
-.txp-actions {
-  display: none; // breaks layout in its current position!
-  //grid-area: actions;
+@media (orientation: portrait) {
+  .txp-actions {
+    display: none; // redundant in jekyll
+    //grid-area: actions;
+  }
 }
 
 #supporting_content {
   @extend .hoz-scroll;
   grid-area: support;
+  @include hozScrollBg;
 }
 
-
-.messagepane>* { // demo only
+.messagepane>* {
+  // demo only
   display: none;
 }
-
-
 
 // area names
 #pane-text {
   grid-area: pane;
-  display: flex;
-  flex-direction: column;
+  //@extend .hoz-scroll;
+  display: grid;
+  grid-template-columns: 36ch 1fr;//repeat(auto-fill,minmax(var(--type-measure),1fr));
+  grid-template-areas: 'title author'
+  'excerpt body'
+  ;
   gap: var(--base-unit);
+    overflow-x: scroll;
+  scroll-snap-type: x proximity;
+  .txp-form-field {
+    //grid-area: text;
+  }
 }
 
 .title {
+  // grid-row-start: 1;
+  // grid-column-start: 1;
   grid-area: title;
+  input {
+    width: 100%;
+  }
 }
 
 .author {
+
+  //grid-row-start: 1;
+  // grid-column-start: 2;
+  // grid-column-end: -1;
   grid-area: author;
   text-wrap: balance;
+  align-self: end;
+}
+
+@media (orientation: portrait) {
+
+  .title,
+  .author {
+    // border: 1px solid red;
+    // grid-column-start: 1;
+    // grid-column-end: -2;
+  }
 }
 
 .body {
@@ -74,7 +112,7 @@ $break4: 1920px;
 }
 
 .txp-layout-4col-alt {
-  grid-area: support;
+ // grid-area: support;
 }
 
 // .txp-dialog{
@@ -82,6 +120,23 @@ $break4: 1920px;
 // }
 .txp-save-zone {
   grid-area: save;
+  position: sticky;
+  top: 0;
+  padding: var(--base-unit--s);
+  margin-left: calc(var(--base-unit--s) * -1);
+  margin-right: calc(var(--base-unit--s) * -1);
+  background: var(--clr-bg);
+  border-bottom: var(--border-width) solid var(--clr-border);
+
+  @media (orientation: portrait) and (min-width: $break0) {
+    padding: var(--base-unit--s) var(--base-unit);
+    margin-left: calc(var(--base-unit) * -1);
+    margin-right: calc(var(--base-unit) * -1);
+  }
+
+  @media (orientation: portrait) and (min-width: $break1) {
+    top: calc((var(--base-unit) *2));
+  }
 }
 
 // #txp-write-sort-group {
@@ -107,7 +162,19 @@ $break4: 1920px;
 }
 
 #txp-custom-field-group {
+  @extend .hoz-scroll;
   grid-area: custom;
+  @include hozScrollBg;
+}
+
+@media (orientation: portrait) {
+  #txp-custom-field-group-content {
+    display: contents;
+
+    .txp-container {
+      display: contents;
+    }
+  }
 }
 
 #txp-recent-group {

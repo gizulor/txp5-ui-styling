@@ -12,11 +12,11 @@ $break1: 720px;
   ;
 
   @media (min-width: $break1) {
-  min-height: var(--vmeasure);
+    min-height: var(--vmeasure);
     position: sticky;
-    top: calc(var(--base-unit--b) - var(--vmeasure));
+    top: calc((var(--base-unit) *2) - var(--vmeasure));
     background-color: var(--clr-bg);
-    grid-template-columns: 36ch 1fr auto;
+    grid-template-columns: 36ch auto auto;
     align-content: end;
     grid-template-areas: 'txp  logout logout'
       'nav nav sitename'
@@ -65,7 +65,7 @@ $break1: 720px;
 
 .txp-view-site {
   grid-area: sitename;
-
+  justify-self: end;
 }
 
 .txp-nav {

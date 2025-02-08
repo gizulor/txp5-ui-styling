@@ -1,8 +1,7 @@
 $break1: 720px;
 
 .txp-header {
-  margin-top: var(--base-unit--s);
-  padding-bottom: var(--base-unit--s);
+  padding: var(--base-unit--s);
   border-bottom: var(--border-width) solid var(--clr-text);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,9 +11,11 @@ $break1: 720px;
   ;
 
   @media (min-width: $break1) {
+    padding:  var(--base-unit);
     min-height: var(--vmeasure);
     position: sticky;
-    top: calc((var(--base-unit) *2) - var(--vmeasure));
+    z-index: 10;
+    top: calc((var(--base-unit) *3) - var(--vmeasure));
     background-color: var(--clr-bg);
     grid-template-columns: 36ch auto auto;
     align-content: end;
@@ -26,6 +27,10 @@ $break1: 720px;
     h1 {
       grid-area: txp;
     }
+    //border: 1px solid red;
+    //width: calc(100% + var(--base-unit--b));
+      //margin: inherit calc(var(--base-unit) *-1);
+      //padding: inherit var(--base-unit);
   }
 }
 
@@ -38,7 +43,7 @@ $break1: 720px;
 }
 
 .dropdown ul {
-  padding: var(--base-unit--s) 0;
+  padding: var(--base-unit) 0;
   margin-left: 0;
 
   &:before {

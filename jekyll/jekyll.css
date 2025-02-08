@@ -922,6 +922,7 @@ button.close:hover {
 }
 .com-image-container img {
   height: auto;
+  width: 100%;
 }
 .com-image-container .destroy {
   position: absolute;
@@ -1073,8 +1074,7 @@ code.-comment::after {
 }
 
 .txp-header {
-  margin-top: var(--base-unit--s);
-  padding-bottom: var(--base-unit--s);
+  padding: var(--base-unit--s);
   border-bottom: var(--border-width) solid var(--clr-text);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1082,9 +1082,11 @@ code.-comment::after {
 }
 @media (min-width: 720px) {
   .txp-header {
+    padding: var(--base-unit);
     min-height: var(--vmeasure);
     position: sticky;
-    top: calc(var(--base-unit) * 2 - var(--vmeasure));
+    z-index: 10;
+    top: calc(var(--base-unit) * 3 - var(--vmeasure));
     background-color: var(--clr-bg);
     grid-template-columns: 36ch auto auto;
     align-content: end;
@@ -1106,7 +1108,7 @@ code.-comment::after {
 }
 
 .dropdown ul {
-  padding: var(--base-unit--s) 0;
+  padding: var(--base-unit) 0;
   margin-left: 0;
 }
 .dropdown ul:before {
@@ -1143,13 +1145,7 @@ body {
     grid-gap: var(--base-unit);
     grid-template-columns: 1fr 1fr;
     align-content: start;
-    padding: 0 var(--base-unit--s);
     grid-template-areas: "header header" "heading message" "save save" "support support" "pane pane" "custom custom" "image image" ". ." "recent extras" "footer footer";
-  }
-}
-@media (orientation: portrait) and (min-width: 480px) {
-  body {
-    padding: 0 var(--base-unit);
   }
 }
 @media (orientation: landscape) {
@@ -1182,31 +1178,6 @@ body {
   }
 }
 
-@media (orientation: portrait) {
-  .hoz-scroll {
-    display: grid;
-    width: calc(100% + var(--base-unit));
-    margin-left: calc(var(--base-unit--s) * -1);
-    grid-gap: calc(var(--base-unit--s) / 2);
-    grid-template-columns: var(--base-unit--s);
-    grid-auto-flow: column;
-    grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
-    overflow-x: scroll;
-    scroll-snap-type: x proximity;
-    padding: var(--base-unit--s);
-  }
-  .hoz-scroll:before, .hoz-scroll:after {
-    content: "";
-    width: var(--base-unit--s);
-  }
-}
-@media (orientation: portrait) and (min-width: 480px) {
-  .hoz-scroll {
-    width: calc(100% + var(--base-unit--b));
-    margin-left: calc(var(--base-unit) * -1);
-  }
-}
-
 .txp-header {
   grid-area: header;
 }
@@ -1217,20 +1188,24 @@ body {
 
 .txp-heading {
   grid-area: heading;
+  padding-inline-start: var(--base-unit--s);
+}
+@media (min-width: 720px) {
+  .txp-heading {
+    padding-inline-start: var(--base-unit);
+  }
 }
 
 .txp-footer {
   grid-area: footer;
   margin-top: var(--vmeasure);
-  padding: var(--base-unit) 0;
+  padding: var(--base-unit) var(--base-unit--s);
   border-top: var(--border-width) solid var(--clr-text);
 }
 
 @media (orientation: portrait) {
   .hoz-scroll, #txp-custom-field-group, #supporting_content {
     display: grid;
-    width: calc(100% + var(--base-unit--b));
-    margin-left: calc(var(--base-unit) * -1);
     grid-gap: var(--base-unit--s);
     grid-auto-flow: column;
     grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
@@ -1239,13 +1214,6 @@ body {
     padding: var(--base-unit--s) var(--base-unit);
   }
 }
-@media (orientation: portrait) and (min-width: 480px) {
-  .hoz-scroll, #txp-custom-field-group, #supporting_content {
-    width: calc(100% + var(--base-unit--b));
-    margin-left: calc(var(--base-unit) * -1);
-  }
-}
-
 @media (orientation: portrait) {
   .txp-actions {
     display: none;
@@ -1267,12 +1235,18 @@ body {
 
 #pane-text {
   grid-area: pane;
+  padding: 0 var(--base-unit--s);
   display: grid;
   grid-template-columns: 36ch 1fr;
   grid-template-areas: "title author" "excerpt body";
   gap: var(--base-unit);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
+}
+@media (min-width: 720px) {
+  #pane-text {
+    padding: 0 var(--base-unit);
+  }
 }
 .title {
   grid-area: title;
@@ -1299,22 +1273,18 @@ body {
   grid-area: save;
   position: sticky;
   top: 0;
-  padding: var(--base-unit--s);
-  margin-left: calc(var(--base-unit--s) * -1);
-  margin-right: calc(var(--base-unit--s) * -1);
   background: var(--clr-bg);
   border-bottom: var(--border-width) solid var(--clr-border);
+  padding: 0 var(--base-unit);
 }
 @media (orientation: portrait) and (min-width: 480px) {
   .txp-save-zone {
     padding: var(--base-unit--s) var(--base-unit);
-    margin-left: calc(var(--base-unit) * -1);
-    margin-right: calc(var(--base-unit) * -1);
   }
 }
 @media (orientation: portrait) and (min-width: 720px) {
   .txp-save-zone {
-    top: calc(var(--base-unit) * 2);
+    top: calc(var(--base-unit) * 3);
   }
 }
 

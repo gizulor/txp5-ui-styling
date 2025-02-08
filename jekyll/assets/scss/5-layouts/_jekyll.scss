@@ -3,16 +3,16 @@ $break1: 720px;
 $break2: 960px;
 $break3: 1280px;
 
-
 body {
   --vmeasure: 15vh;
+
+  // padding: 0;//var(--base-unit--s);
   @media (orientation: portrait) {
     display: grid;
     grid-gap: var(--base-unit);
-    grid-template-columns:  1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-content: start;
-    padding: 0 var(--base-unit--s);
-
+    //padding: 0 var(--base-unit--s);
     grid-template-areas: 'header header'
       'heading message'
       'save save'
@@ -28,7 +28,8 @@ body {
   }
 
   @media (orientation: portrait) and (min-width: $break0) {
-    padding: 0 var(--base-unit);
+    //padding: 0 var(--base-unit);
+    // padding: 0 var(--base-unit);
   }
 
   @media (orientation: landscape) {
@@ -72,38 +73,9 @@ body {
   }
 }
 
-
-.hoz-scroll {
-  @media (orientation: portrait) {
-    display: grid;
-    width: calc(100% + var(--base-unit));
-    margin-left: calc(var(--base-unit--s) *-1);
-    grid-gap: calc(var(--base-unit--s) / 2);
-    grid-template-columns: var(--base-unit--s);
-    grid-auto-flow: column;
-    grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
-    overflow-x: scroll;
-    scroll-snap-type: x proximity;
-    padding: var(--base-unit--s);
-
-    &:before,
-    &:after {
-      content: '';
-      width: var(--base-unit--s);
-    }
-  }
-  @media (orientation: portrait) and (min-width: $break0) {
-    width: calc(100% + var(--base-unit--b));
-    margin-left: calc(var(--base-unit) *-1);
-  }
-}
-
-
-
-
-
 .txp-header {
   grid-area: header;
+  //}
 }
 
 .messagepane {
@@ -112,11 +84,16 @@ body {
 
 .txp-heading {
   grid-area: heading;
+  padding-inline-start: var(--base-unit--s);
+
+  @media (min-width: $break1) {
+    padding-inline-start: var(--base-unit);
+  }
 }
 
 .txp-footer {
   grid-area: footer;
   margin-top: var(--vmeasure);
-  padding: var(--base-unit) 0;
+  padding: var(--base-unit) var(--base-unit--s);
   border-top: var(--border-width) solid var(--clr-text);
 }

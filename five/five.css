@@ -922,6 +922,7 @@ button.close:hover {
 }
 .com-image-container img {
   height: auto;
+  width: 100%;
 }
 .com-image-container .destroy {
   position: absolute;

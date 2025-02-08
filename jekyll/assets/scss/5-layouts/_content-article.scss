@@ -18,15 +18,15 @@ $break4: 1920px;
 .hoz-scroll {
   @media (orientation: portrait) {
     display: grid;
-    width: calc(100% + var(--base-unit--b));
-    margin-left: calc(var(--base-unit) *-1);
+    // width: calc(100% + var(--base-unit--b));
+    // margin-left: calc(var(--base-unit) *-1);
     grid-gap: var(--base-unit--s);
     grid-auto-flow: column;
     grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
     overflow-x: scroll;
     scroll-snap-type: x proximity;
     padding: var(--base-unit--s) var(--base-unit);
-    // &:before,
+// &:before,
     // &:after {
     //   content: '';
     //   width: var(--base-unit--s);
@@ -34,8 +34,8 @@ $break4: 1920px;
   }
 
   @media (orientation: portrait) and (min-width: $break0) {
-    width: calc(100% + var(--base-unit--b));
-    margin-left: calc(var(--base-unit) *-1);
+    // width: calc(100% + var(--base-unit--b));
+    // margin-left: calc(var(--base-unit) *-1);
   }
 }
 
@@ -60,6 +60,10 @@ $break4: 1920px;
 // area names
 #pane-text {
   grid-area: pane;
+  padding: 0 var(--base-unit--s);
+  @media (min-width: $break1) {
+  padding: 0 var(--base-unit);
+  }
   //@extend .hoz-scroll;
   display: grid;
   grid-template-columns: 36ch 1fr;//repeat(auto-fill,minmax(var(--type-measure),1fr));
@@ -122,20 +126,16 @@ $break4: 1920px;
   grid-area: save;
   position: sticky;
   top: 0;
-  padding: var(--base-unit--s);
-  margin-left: calc(var(--base-unit--s) * -1);
-  margin-right: calc(var(--base-unit--s) * -1);
   background: var(--clr-bg);
   border-bottom: var(--border-width) solid var(--clr-border);
+  padding: 0 var(--base-unit);
 
   @media (orientation: portrait) and (min-width: $break0) {
     padding: var(--base-unit--s) var(--base-unit);
-    margin-left: calc(var(--base-unit) * -1);
-    margin-right: calc(var(--base-unit) * -1);
   }
 
   @media (orientation: portrait) and (min-width: $break1) {
-    top: calc((var(--base-unit) *2));
+    top: calc((var(--base-unit) *3));
   }
 }
 

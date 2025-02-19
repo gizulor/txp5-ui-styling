@@ -26,7 +26,7 @@ $break4: 1920px;
     overflow-x: scroll;
     scroll-snap-type: x proximity;
     padding: var(--base-unit--s) var(--base-unit);
-// &:before,
+    // &:before,
     // &:after {
     //   content: '';
     //   width: var(--base-unit--s);
@@ -52,6 +52,16 @@ $break4: 1920px;
   @include hozScrollBg;
 }
 
+@media (orientation: landscape) {
+  #txp-image-group,
+  .nav-tertiary,
+  #txp-recent-group,
+  #txp-custom-field-group {
+    grid-area: surplus;
+  }
+
+}
+
 .messagepane>* {
   // demo only
   display: none;
@@ -61,18 +71,20 @@ $break4: 1920px;
 #pane-text {
   grid-area: pane;
   padding: 0 var(--base-unit--s);
+
   @media (min-width: $break1) {
-  padding: 0 var(--base-unit);
+    padding: 0 var(--base-unit);
   }
-  //@extend .hoz-scroll;
+
   display: grid;
-  grid-template-columns: 36ch 1fr;//repeat(auto-fill,minmax(var(--type-measure),1fr));
+  grid-template-columns: repeat(auto-fill, minmax(36ch, 1fr));
   grid-template-areas: 'title author'
   'excerpt body'
   ;
   gap: var(--base-unit);
-    overflow-x: scroll;
+  overflow-x: scroll;
   scroll-snap-type: x proximity;
+
   .txp-form-field {
     //grid-area: text;
   }
@@ -82,13 +94,13 @@ $break4: 1920px;
   // grid-row-start: 1;
   // grid-column-start: 1;
   grid-area: title;
+
   input {
     width: 100%;
   }
 }
 
 .author {
-
   //grid-row-start: 1;
   // grid-column-start: 2;
   // grid-column-end: -1;
@@ -116,7 +128,7 @@ $break4: 1920px;
 }
 
 .txp-layout-4col-alt {
- // grid-area: support;
+  // grid-area: support;
 }
 
 // .txp-dialog{

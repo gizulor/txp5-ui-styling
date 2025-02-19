@@ -56,11 +56,16 @@ textarea {
   }
 }
 
+.date,
+.time {
+  text-wrap: balance;
+}
+
 textarea {
   appearance: none;
   width: 100%;
   //height: auto;
-  min-height: calc(var(--base-unit)* 5.5);
+  //min-height: calc(var(--base-unit)* 5.5);
   // &[rows="16"] {
   //   height: auto; // calc(var(--base-unit)* 5.5);
   // }
@@ -71,24 +76,31 @@ textarea {
 
   //border: var(--border-width) solid currentcolor;
   &:empty {
-    min-height: initial;
+   // min-height: var(--base-unit--b);
   }
 
   &:focus {
     min-height: calc(var(--base-unit)* 12);
+    min-width: 16ch;
+  }
+
+  // fix textareas  with a large size attribute
+  &[rows] {
+    //height: calc(var(--base-unit) * 2.5);
   }
 }
 
 // auto-growing textarea see https://chriscoyier.net/2023/09/29/css-solves-auto-expanding-textareas-probably-eventually/
 .txp-form-field-value:has(textarea) {
   display: grid;
+
   &:after {
     content: attr(data-replicated-value) " "; // Needed to preventy jumpy behavior
     white-space: pre-wrap;
     visibility: hidden; // Hidden from view, clicks, and screen readers
   }
 
-  & > textarea {
+  &>textarea {
     resize: none; //user resizing breaks auto sizing
     overflow: hidden; // hide Firefox scrollbar on growth
   }

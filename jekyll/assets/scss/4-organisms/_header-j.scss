@@ -1,17 +1,19 @@
 $break1: 720px;
 
 .txp-header {
-  padding: var(--base-unit--s);
-  border-bottom: var(--border-width) solid var(--clr-text);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'txp  logout'
-    'sitename sitename'
-    'nav nav'
-  ;
+  @media (orientation: portrait) {
+    padding: var(--base-unit--s);
+    border-bottom: var(--border-width) solid var(--clr-text);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'txp  logout'
+      'sitename sitename'
+      'nav nav'
+    ;
+  }
 
-  @media (min-width: $break1) {
-    padding:  var(--base-unit);
+  @media (orientation: portrait) and (min-width: $break1) {
+    padding: var(--base-unit);
     min-height: var(--vmeasure);
     position: sticky;
     z-index: 10;
@@ -27,10 +29,15 @@ $break1: 720px;
     h1 {
       grid-area: txp;
     }
+
     //border: 1px solid red;
     //width: calc(100% + var(--base-unit--b));
-      //margin: inherit calc(var(--base-unit) *-1);
-      //padding: inherit var(--base-unit);
+    //margin: inherit calc(var(--base-unit) *-1);
+    //padding: inherit var(--base-unit);
+  }
+  @media (orientation: landscape) {
+    height: 100vh;
+    overflow-y: auto;
   }
 }
 
@@ -66,8 +73,6 @@ $break1: 720px;
 //     background-color: var(--clr-brand);
 //   }
 // }
-
-
 .txp-view-site {
   grid-area: sitename;
   justify-self: end;

@@ -260,11 +260,19 @@ body {
   background-color: var(--clr-bg);
 }
 
+.txp-header,
+.txp-nav, .ui-dialog-titlebar, .ui-dialog-controls, .txp-textarea-options, .txp-details .toggle, .txp-save-zone, .txp-search, .txp-form-field-label, .messageflash, .txp-footer, .prev-next, .nav-tertiary, table .date,
+table .time {
+  display: flex;
+  gap: var(--base-unit--s);
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   display: block;
-  container-type: inline-size;
   --min-fs: .6875;
   --max-fs: 1;
   --min-vw: 20;
@@ -273,6 +281,19 @@ table {
   --max-fs-rem: var(--max-fs) * 1rem;
   --min-vw-rem: var(--min-vw) * 1rem;
   --slope: (var(--max-fs) - var(--min-fs)) * (100vw - var(--min-vw-rem)) / (var(--max-vw) - var(--min-vw));
+}
+table input,
+table textarea,
+table select {
+  padding: 0 var(--base-unit--ss);
+}
+table .date,
+table .time {
+  min-width: 20ch;
+  gap: var(--base-unit--ss);
+}
+table .date {
+  margin-bottom: var(--base-unit--ss);
 }
 
 tr {
@@ -286,7 +307,7 @@ th {
   padding: var(--base-unit--ss);
 }
 
-@container (max-width: 1280px) {
+@media (max-width: 1280px) {
   th,
   td {
     white-space: nowrap;
@@ -347,22 +368,23 @@ textarea:focus {
     width: 100%;
   }
 }
+.date,
+.time {
+  text-wrap: balance;
+}
+
 textarea {
   appearance: none;
   width: 100%;
-  min-height: calc(var(--base-unit) * 5.5);
   max-height: 75vh;
   padding-top: var(--base-unit--ss);
   padding-bottom: var(--base-unit);
   vertical-align: top;
 }
-textarea:empty {
-  min-height: initial;
-}
 textarea:focus {
   min-height: calc(var(--base-unit) * 12);
+  min-width: 16ch;
 }
-
 .txp-form-field-value:has(textarea) {
   display: grid;
 }
@@ -589,15 +611,7 @@ summary:before {
 }
 
 details[open] > summary:before {
-  content: "\e909";
-}
-
-.txp-header,
-.txp-nav, .ui-dialog-titlebar, .ui-dialog-controls, .txp-textarea-options, .txp-details .toggle, .txp-save-zone, .txp-search, .txp-form-field-label, .messageflash, .txp-footer, .prev-next, .nav-tertiary {
-  display: flex;
-  gap: var(--base-unit--s);
-  align-items: baseline;
-  flex-wrap: wrap;
+  content: "\e90b";
 }
 
 .ui-helper-hidden {
@@ -653,37 +667,56 @@ details[open] > summary:before {
   content: "\e903";
 }
 
-.ui-icon-close:before {
+.ui-icon-circ:before {
   content: "\e904";
 }
 
-.ui-icon-close2:before {
+.ui-icon-close:before {
   content: "\e905";
 }
 
-.ui-icon-extlink:before {
+.ui-icon-close2:before {
   content: "\e906";
 }
 
-.ui-icon-help:before {
+.ui-icon-extlink:before {
   content: "\e907";
 }
 
-.ui-icon-info:before {
+.ui-icon-help:before {
   content: "\e908";
+}
+
+.ui-icon-info:before {
+  content: "\e909";
 }
 
 .ui-icon-arrowthickstop-1-n:before,
 .ui-icon-subtract:before {
-  content: "\e909";
-}
-
-.ui-icon-circ:before {
   content: "\e90b";
 }
 
 .ui-icon-txp:before {
+  content: "\e90c";
+}
+
+.ui-icon-pencil:before {
   content: "\e90a";
+}
+
+.desc:after,
+.asc:after {
+  content: ">";
+  display: inline-block;
+  margin-inline-start: var(--base-unit--ss);
+}
+
+.desc:after {
+  transform: rotateZ(90deg) scaleX(0.5);
+}
+
+.asc:after {
+  transform: rotateZ(-90deg) scaleX(0.5);
 }
 
 .txp-heading {
@@ -785,9 +818,6 @@ button.close:hover {
   color: var(--white);
 }
 
-.txp-form-field {
-  max-width: var(--type-measure);
-}
 .txp-form-field-label {
   justify-content: space-between;
   margin-bottom: var(--base-unit--s);
@@ -870,7 +900,7 @@ button.close:hover {
   margin-bottom: var(--base-unit--ss);
 }
 .txp-summary.expanded a:before {
-  content: "\e909";
+  content: "\e90b";
 }
 
 .txp-option-link {
@@ -1059,7 +1089,7 @@ code.-comment::after {
 }
 
 .txp-view-site-name a:after {
-  content: "\e906";
+  content: "\e907";
   font-family: "core-line";
 }
 

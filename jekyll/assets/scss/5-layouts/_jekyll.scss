@@ -5,14 +5,11 @@ $break3: 1280px;
 
 body {
   --vmeasure: 15vh;
-
-  // padding: 0;//var(--base-unit--s);
   @media (orientation: portrait) {
     display: grid;
     grid-gap: var(--base-unit);
     grid-template-columns: 1fr 1fr;
     align-content: start;
-    //padding: 0 var(--base-unit--s);
     grid-template-areas: 'header header'
       'heading message'
       'save save'
@@ -27,50 +24,47 @@ body {
     ;
   }
 
-  @media (orientation: portrait) and (min-width: $break0) {
-    //padding: 0 var(--base-unit);
-    // padding: 0 var(--base-unit);
-  }
 
   @media (orientation: landscape) {
     display: grid;
     gap: var(--base-unit);
-    grid-template-columns: 14ch 1fr;
-    grid-template-areas: 'header message'
-      'header heading'
-      'header support'
-      'header pane'
-      'header footer'
-    ;
-    padding-inline-end: var(--base-unit);
-    width: 100%;
-  }
-
-  @media (orientation: landscape) and (min-width: $break1) {
-    grid-template-columns: 14ch auto 1fr;
+    grid-template-columns: 18ch 1fr 1fr;
     grid-template-areas: 'header message message'
+      'header save save'
       'header heading heading'
-      'header support pane'
+      'header pane pane'
+      'header support extras'
+      'header image .'
+      'header recent custom'
       'header footer footer'
     ;
-    grid-template-rows: auto 15vh auto;
   }
 
-  @media (orientation: landscape) and (min-width: $break2) {
-    grid-template-columns: 14ch 18ch 1fr 1fr;
-    grid-template-areas: 'header message message message'
-      'header heading heading heading'
-      'header support title author'
-      'header support body excerpt'
-      'header support . .'
-      'header footer footer footer'
-    ;
-  }
-
-  @media (orientation: landscape) and (min-width: $break3) {
-    grid-template-columns: 14ch 24ch 1fr 1fr;
-    gap: var(--base-unit) var(--base-unit--b);
-  }
+//   @media (orientation: landscape) and (min-width: $break1) {
+//     grid-template-columns: 14ch auto 1fr;
+//     grid-template-areas: 'header message message'
+//       'header heading heading'
+//       'header support pane'
+//       'header footer footer'
+//     ;
+//     grid-template-rows: auto 15vh auto;
+//   }
+//
+//   @media (orientation: landscape) and (min-width: $break2) {
+//     grid-template-columns: 14ch 18ch 1fr 1fr;
+//     grid-template-areas: 'header message message message'
+//       'header heading heading heading'
+//       'header support title author'
+//       'header support body excerpt'
+//       'header support . .'
+//       'header footer footer footer'
+//     ;
+//   }
+//
+//   @media (orientation: landscape) and (min-width: $break3) {
+//     grid-template-columns: 14ch 24ch 1fr 1fr;
+//     gap: var(--base-unit) var(--base-unit--b);
+//   }
 }
 
 .txp-header {

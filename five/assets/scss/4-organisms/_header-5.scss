@@ -14,6 +14,7 @@ $break1: 720px;
   @media (min-width: $break1) {
   min-height: var(--vmeasure);
     position: sticky;
+    z-index: 10;
     top: calc(var(--base-unit--b) - var(--vmeasure));
     background-color: var(--clr-bg);
     grid-template-columns: 36ch 1fr auto;

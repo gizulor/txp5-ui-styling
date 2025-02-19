@@ -51,29 +51,51 @@
 .ui-icon-check2:before {
   content: "\e903";
 }
-.ui-icon-close:before {
+.ui-icon-circ:before {
   content: "\e904";
 }
-.ui-icon-close2:before {
+.ui-icon-close:before {
   content: "\e905";
 }
-.ui-icon-extlink:before {
+.ui-icon-close2:before {
   content: "\e906";
 }
-.ui-icon-help:before {
+.ui-icon-extlink:before {
   content: "\e907";
 }
-.ui-icon-info:before {
+.ui-icon-help:before {
   content: "\e908";
+}
+.ui-icon-info:before {
+  content: "\e909";
 }
 
 .ui-icon-arrowthickstop-1-n:before,
 .ui-icon-subtract:before {
-  content: "\e909";
-}
-.ui-icon-circ:before {
   content: "\e90b";
 }
 .ui-icon-txp:before {
+  content: "\e90c";
+}
+.ui-icon-pencil:before {
   content: "\e90a";
+}
+
+.ui-icon-arrow:before {
+}
+
+.desc,
+.asc {
+  &:after {
+    content: '>'; // placeholder
+      display: inline-block;
+      margin-inline-start: var(--base-unit--ss);
+  }
+}
+
+.desc:after {
+  transform: rotateZ(90deg) scaleX(.5);
+}
+.asc:after {
+  transform: rotateZ(-90deg) scaleX(.5);
 }

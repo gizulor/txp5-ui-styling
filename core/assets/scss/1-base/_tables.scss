@@ -21,11 +21,24 @@ table {
   select {
     padding: 0 var(--base-unit--ss);
   }
+
+  textarea,
   .date,
   .time {
-    @extend %beam;
+    //@extend %beam;
+   // position: relative;
     min-width: 20ch;
-    gap:var(--base-unit--ss);
+    //gap:var(--base-unit--ss);
+    // [type="checkbox"]{
+    //   &:before {
+    //     content: '•';
+    //     display: block;
+    //   }
+    //   // flex: 1;
+    //   // + label {
+    //   //   flex: 2;
+    //   // }
+    // }
   }
 
   .date {

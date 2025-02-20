@@ -261,8 +261,7 @@ body {
 }
 
 .txp-header,
-.txp-nav, .ui-dialog-titlebar, .ui-dialog-controls, .txp-textarea-options, .txp-details .toggle, .txp-save-zone, .txp-search, .txp-form-field-label, .messageflash, .txp-footer, .prev-next, .nav-tertiary, table .date,
-table .time {
+.txp-nav, .ui-dialog-titlebar, .ui-dialog-controls, .txp-textarea-options, .txp-details .toggle, .txp-save-zone, .txp-search, .txp-form-field-label, .messageflash, .txp-footer, .prev-next, .nav-tertiary {
   display: flex;
   gap: var(--base-unit--s);
   align-items: baseline;
@@ -287,10 +286,10 @@ table textarea,
 table select {
   padding: 0 var(--base-unit--ss);
 }
+table textarea,
 table .date,
 table .time {
   min-width: 20ch;
-  gap: var(--base-unit--ss);
 }
 table .date {
   margin-bottom: var(--base-unit--ss);
@@ -969,6 +968,20 @@ button.close:hover {
   color: var(--clr-warning);
 }
 
+.txp-listtables {
+  padding: var(--base-unit) 0;
+  overflow-x: auto;
+}
+.txp-listtables.is--overflowing {
+  border-inline-end: var(--base-unit--ss) solid var(--clr-brand);
+}
+.txp-listtables td:first-child {
+  position: sticky;
+  z-index: 1;
+  left: 0;
+  background: var(--clr-bg);
+}
+
 .txp-dialog {
   display: none;
   position: absolute;
@@ -1260,13 +1273,13 @@ body {
 
 #pane-text {
   grid-area: pane;
-  padding: 0 var(--base-unit--s);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(36ch, 1fr));
   grid-template-areas: "title author" "excerpt body";
   gap: var(--base-unit);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
+  padding: 0 var(--base-unit--s);
 }
 @media (min-width: 720px) {
   #pane-text {

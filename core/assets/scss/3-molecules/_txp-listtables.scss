@@ -1,0 +1,14 @@
+.txp-listtables {
+  padding: var(--base-unit) 0;
+  overflow-x: auto;
+  &.is--overflowing { // added via js when table overflows in the x direction
+      border-inline-end: var(--base-unit--ss) solid var(--clr-brand);
+  }
+  td:first-child {
+    position: sticky;
+    z-index: 1;
+    left: 0;
+    background: var(--clr-bg);
+  }
+
+}

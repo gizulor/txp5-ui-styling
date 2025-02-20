@@ -70,11 +70,6 @@ $break4: 1920px;
 // area names
 #pane-text {
   grid-area: pane;
-  padding: 0 var(--base-unit--s);
-
-  @media (min-width: $break1) {
-    padding: 0 var(--base-unit);
-  }
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(36ch, 1fr));
@@ -85,6 +80,11 @@ $break4: 1920px;
   overflow-x: scroll;
   scroll-snap-type: x proximity;
 
+  padding: 0 var(--base-unit--s);
+
+  @media (min-width: $break1) {
+    padding: 0 var(--base-unit);
+  }
   .txp-form-field {
     //grid-area: text;
   }

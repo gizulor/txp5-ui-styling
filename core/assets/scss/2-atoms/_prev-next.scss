@@ -3,19 +3,19 @@
 .prev-next {
   @extend %beam !optional;
   gap: var(--base-unit);
-  .ui-icon {
-    width: auto;
-    overflow: auto;
-    height: auto;
-    margin-inline-end: 0;
-  }
-  > a,
-  > span {
-    display: flex;
-    flex-direction: column;
-
-    justify-items: baseline;
-  }
+//   .ui-icon {
+//     width: auto;
+//     overflow: auto;
+//     height: auto;
+//     margin-inline-end: 0;
+//   }
+//   > a,
+//   > span {
+//     display: flex;
+//     flex-direction: column;
+//
+//     justify-items: baseline;
+//   }
 
   .disabled {
     opacity: .5;

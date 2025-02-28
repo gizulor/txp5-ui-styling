@@ -106,7 +106,7 @@ $break4: 1920px;
 //   grid-area: dialog;
 // }
 @media (min-width: $break1) {
-  .txp-layout-4col-alt {
+  #page-article .txp-layout-4col-alt {
     display: flex;
     flex-direction: column;
     gap: var(--base-unit);

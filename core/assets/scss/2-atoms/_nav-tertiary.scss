@@ -4,7 +4,12 @@
   @extend %beam !optional;
   margin-bottom: var(--base-unit);
 }
-
+.navlink {
+  text-decoration: none;
+  &-active {
+  text-decoration: underline;
+  }
+}
 .navlink-disabled {
   opacity: .5;
 }

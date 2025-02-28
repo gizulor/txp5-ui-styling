@@ -36,6 +36,7 @@
 
 }
 
+// alphabetical order by default when re-importing svgs to icomoon
 
 .ui-icon-arrowthickstop-1-s:before,
 .ui-icon-add:before,
@@ -45,6 +46,27 @@
 .ui-icon-alert:before {
   content: "\e901";
 }
+.ui-icon-arrow:before,
+.ui-icon-arrowthick-1-n:before,
+.ui-icon-arrowthick-1-e:before,
+.ui-icon-arrowthick-1-s:before,
+.ui-icon-arrowthick-1-w:before {
+  content: "\e90d";
+}
+
+.ui-icon-arrowthick-1-n:before {
+  transform: rotateZ(-90deg);
+}
+.ui-icon-arrowthick-1-e:before {
+  //transform: rotateZ(-90deg);
+}
+.ui-icon-arrowthick-1-s:before {
+  transform: rotateZ(90deg);
+}
+.ui-icon-arrowthick-1-w{
+  transform: scaleX(-100%);
+}
+
 .ui-icon-check:before {
   content: "\e902";
 }
@@ -69,6 +91,9 @@
 .ui-icon-info:before {
   content: "\e909";
 }
+.ui-icon-pencil:before {
+  content: "\e90a";
+}
 
 .ui-icon-arrowthickstop-1-n:before,
 .ui-icon-subtract:before {
@@ -77,12 +102,7 @@
 .ui-icon-txp:before {
   content: "\e90c";
 }
-.ui-icon-pencil:before {
-  content: "\e90a";
-}
 
-.ui-icon-arrow:before {
-}
 
 .desc,
 .asc {

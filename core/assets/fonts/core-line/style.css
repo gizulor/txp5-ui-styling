@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'core-line';
   src:
-    url('fonts/core-line.ttf?7ujt4k') format('truetype'),
-    url('fonts/core-line.woff?7ujt4k') format('woff'),
-    url('fonts/core-line.svg?7ujt4k#core-line') format('svg');
+    url('fonts/core-line.ttf?nrsusv') format('truetype'),
+    url('fonts/core-line.woff?nrsusv') format('woff'),
+    url('fonts/core-line.svg?nrsusv#core-line') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-.ui-icon {
+[class^="ui-icon-"], [class*=" ui-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'core-line' !important;
   speak: never;
@@ -24,14 +24,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ui-icon-circ:before {
-  content: "\e90b";
-}
 .ui-icon-add:before {
   content: "\e900";
 }
 .ui-icon-alert:before {
   content: "\e901";
+}
+.ui-icon-arrow:before {
+  content: "\e90d";
 }
 .ui-icon-check:before {
   content: "\e902";
@@ -39,24 +39,30 @@
 .ui-icon-check2:before {
   content: "\e903";
 }
-.ui-icon-close:before {
+.ui-icon-circ:before {
   content: "\e904";
 }
-.ui-icon-close2:before {
+.ui-icon-close:before {
   content: "\e905";
 }
-.ui-icon-extlink:before {
+.ui-icon-close2:before {
   content: "\e906";
 }
-.ui-icon-help:before {
+.ui-icon-extlink:before {
   content: "\e907";
 }
-.ui-icon-info:before {
+.ui-icon-help:before {
   content: "\e908";
 }
-.ui-icon-subtract:before {
+.ui-icon-info:before {
   content: "\e909";
 }
-.ui-icon-txp:before {
+.ui-icon-pencil:before {
   content: "\e90a";
+}
+.ui-icon-subtract:before {
+  content: "\e90b";
+}
+.ui-icon-txp:before {
+  content: "\e90c";
 }

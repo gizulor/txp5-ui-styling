@@ -658,6 +658,26 @@ details[open] > summary:before {
   content: "\e901";
 }
 
+.ui-icon-arrow:before,
+.ui-icon-arrowthick-1-n:before,
+.ui-icon-arrowthick-1-e:before,
+.ui-icon-arrowthick-1-s:before,
+.ui-icon-arrowthick-1-w:before {
+  content: "\e90d";
+}
+
+.ui-icon-arrowthick-1-n:before {
+  transform: rotateZ(-90deg);
+}
+
+.ui-icon-arrowthick-1-s:before {
+  transform: rotateZ(90deg);
+}
+
+.ui-icon-arrowthick-1-w {
+  transform: scaleX(-100%);
+}
+
 .ui-icon-check:before {
   content: "\e902";
 }
@@ -690,6 +710,10 @@ details[open] > summary:before {
   content: "\e909";
 }
 
+.ui-icon-pencil:before {
+  content: "\e90a";
+}
+
 .ui-icon-arrowthickstop-1-n:before,
 .ui-icon-subtract:before {
   content: "\e90b";
@@ -697,10 +721,6 @@ details[open] > summary:before {
 
 .ui-icon-txp:before {
   content: "\e90c";
-}
-
-.ui-icon-pencil:before {
-  content: "\e90a";
 }
 
 .desc:after,
@@ -760,24 +780,19 @@ button.close:hover {
   margin-bottom: var(--base-unit);
 }
 
+.navlink {
+  text-decoration: none;
+}
+.navlink-active {
+  text-decoration: underline;
+}
+
 .navlink-disabled {
   opacity: 0.5;
 }
 
 .prev-next {
   gap: var(--base-unit);
-}
-.prev-next .ui-icon {
-  width: auto;
-  overflow: auto;
-  height: auto;
-  margin-inline-end: 0;
-}
-.prev-next > a,
-.prev-next > span {
-  display: flex;
-  flex-direction: column;
-  justify-items: baseline;
 }
 .prev-next .disabled {
   opacity: 0.5;
@@ -792,7 +807,7 @@ button.close:hover {
 
 .txp-dropdown {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   background: var(--clr-bg);
   list-style: none;
 }
@@ -1114,6 +1129,8 @@ code.-comment::after {
 #supporting_content,
 #main_content,
 #pane-text,
+.txp-layout-1col,
+.txp-list-head,
 .explode {
   display: contents;
 }
@@ -1212,10 +1229,77 @@ body {
   border-top: var(--border-width) solid var(--clr-text);
 }
 
-.txp-listtables {
-  padding: var(--base-unit--b) 0;
-  grid-column-start: 1;
-  grid-column-end: -1;
+body:not(#page-article) .txp-layout {
+  display: grid;
+  grid-template-columns: 36ch auto auto;
+  gap: var(--base-unit);
+  grid-template-areas: "message message message" "heading heading control" "search search options " "list list list";
+}
+
+.txp-search {
+  grid-area: search;
+}
+
+.txp-control-panel {
+  grid-area: control;
+  align-self: end;
+  padding-bottom: var(--base-unit--s);
+}
+
+.txp-list-options {
+  grid-area: options;
+}
+
+.txp-async-update,
+.txp-list-container {
+  grid-area: list;
+  max-width: calc(100vw - var(--base-unit--b));
+}
+
+.multi_edit_form {
+  padding-bottom: var(--base-unit);
+}
+
+tbody:has(.has-thumbnail) {
+  padding-top: var(--base-unit);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18ch, 1fr));
+  gap: var(--base-unit);
+}
+tbody:has(.has-thumbnail) tr {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 0;
+  gap: var(--base-unit--ss);
+}
+tbody:has(.has-thumbnail) td,
+tbody:has(.has-thumbnail) th {
+  padding: 0;
+}
+tbody:has(.has-thumbnail) .has-thumbnail {
+  width: 100%;
+}
+tbody:has(.has-thumbnail) .has-thumbnail img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  object-position: top left;
+}
+tbody:has(.has-thumbnail) .date,
+tbody:has(.has-thumbnail) .txp-list-col-tag-build {
+  font-size: smaller;
+}
+
+thead:has(.txp-list-col-thumbnail) {
+  font-size: smaller;
+}
+thead:has(.txp-list-col-thumbnail) .txp-list-col-multi-edit {
+  border: calc(var(--border-width) * 2) solid var(--clr-brand);
+}
+thead:has(.txp-list-col-thumbnail) .date {
+  min-width: auto;
 }
 
 #page-article .txp-body {
@@ -1286,7 +1370,7 @@ body {
 }
 
 @media (min-width: 640px) {
-  .txp-layout-4col-alt {
+  #page-article .txp-layout-4col-alt {
     display: flex;
     flex-direction: column;
     gap: var(--base-unit);

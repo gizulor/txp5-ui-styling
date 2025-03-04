@@ -1,11 +1,14 @@
 @use "../2-atoms/beam";
 .txp-form-field {
-  //width: max-content;
+ //width: max-content;
  // max-width:var(--type-measure);
   button {
    // background-color: var(--clr-brand);
   }
 }
+// body:not(#page-article) .txp-form-field {
+//   @extend %beam;
+// }
 
 .txp-form-field-label {
   @extend %beam !optional;

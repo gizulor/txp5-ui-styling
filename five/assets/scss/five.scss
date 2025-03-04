@@ -4,6 +4,7 @@
 @use "../../../core/assets/scss/_debug.scss";
 // settings
 @use "../../../core/assets/scss/0-settings/config";
+@use "0-settings/breakpoints";
 @use "../../../core/assets/scss/0-settings/colours";
 @use "../../../core/assets/scss/0-settings/mixins";
 // base

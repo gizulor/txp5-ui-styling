@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <g fill="none" fill-rule="evenodd" class="page-1">
+    <g fill="#000" fill-rule="nonzero" class="close2">
+      <path d="M13.146.146a.5.5 0 0 1 .765.638l-.057.07-13 13a.5.5 0 0 1-.765-.638l.057-.07 13-13z" class="vector"/>
+      <path d="M.146.146A.5.5 0 0 1 .784.09l.07.057 13 13a.5.5 0 0 1-.638.765l-.07-.057-13-13a.5.5 0 0 1 0-.708z" class="vector-2"/>
+    </g>
+  </g>
+</svg>

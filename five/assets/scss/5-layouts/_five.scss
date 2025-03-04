@@ -1,19 +1,16 @@
 @use "../../../../core/assets/scss/0-settings/mixins";
-$break1: 640px;
-$break2: 960px;
-$break3: 1280px;
-$break4: 1780px;
-$break5: 2400px;
+// @use "../../../../core/assets/scss/2-atoms/beam";
+@use "../0-settings/breakpoints" as bp;
 
 body {
   --vmeasure: 15vh;
   padding: 0 var(--base-unit--s);
 
-  @media (min-width: $break1) {
+  @media (min-width: bp.$break1) {
     padding: 0 var(--base-unit);
   }
 
-  @media (min-width: $break2) {
+  @media (min-width: bp.$break2) {
     padding: 0 var(--base-unit--b);
   }
 }
@@ -27,15 +24,33 @@ body {
 }
 
 // list pages
-body:not(#page-article) .txp-layout {
-  display: grid;
-  grid-template-columns: 36ch auto auto;
-  gap: var(--base-unit);
-  grid-template-areas: 'message message message'
-    'heading heading control'
-    'search search options '
-    'list list list'
-  ;
+//body:not(#page-article)
+.txp-layout:has(.txp-layout-1col) {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: bp.$break2) {
+    display: grid;
+    gap: var(--base-unit);
+    grid-template-columns: 36ch auto auto;
+    grid-template-areas: 'message message message'
+      'heading heading control'
+      'search search options '
+      'list list list'
+    ;
+  }
+}
+
+@media (max-width: bp.$break2) {
+
+  .txp-search,
+  .inline-file-uploader {
+    $columns: clamp(18ch, 50vw, 48ch);
+    $gap: var(--base-unit--s);
+    $padding: var(--base-unit--s) 0;
+    @include mixins.hozScroll($columns, $gap, $padding);
+    @include mixins.hozScrollBg;
+  }
 }
 
 .txp-search {
@@ -44,8 +59,11 @@ body:not(#page-article) .txp-layout {
 
 .txp-control-panel {
   grid-area: control;
-  align-self: end;
   padding-bottom: var(--base-unit--s);
+
+  @media (min-width: bp.$break2) {
+    align-self: end;
+  }
 }
 
 .txp-list-options {
@@ -56,58 +74,141 @@ body:not(#page-article) .txp-layout {
 .txp-list-container {
   grid-area: list;
   // enable large table hoz-scrolling
-  max-width: calc(100vw - var(--base-unit--b));
+  max-width: calc(100vw - var(--base-unit));
+
+  @media (min-width: bp.$break2) {
+    max-width: calc(100vw - var(--base-unit--b));
+  }
 }
 
 .multi_edit_form {
   padding-bottom: var(--base-unit);
 }
 
-tbody:has(.has-thumbnail) {
-  padding-top: var(--base-unit);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18ch, 1fr));
-  gap: var(--base-unit);
+.multi-edit {
+  position: sticky;
+  z-index: 1;
+  bottom: 0;
+  background-color: var(--clr-bg);
+  width: max-content;
+}
 
-  tr {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-bottom: 0;
-    gap: var(--base-unit--ss);
-  }
+@media (min-width: bp.$break1) {
+  tbody:has(.has-thumbnail) {
+    padding-top: var(--base-unit);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18ch, 1fr));
+    gap: var(--base-unit);
 
-  td,
-  th {
-    padding: 0;
-  }
+    tr {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 0;
+      gap: var(--base-unit--ss);
+    }
 
-  .has-thumbnail {
-    width: 100%;
+    td,
+    th {
+      padding: 0;
+    }
 
-    img {
-      aspect-ratio: 1/1;
-      object-fit: contain;
-      height: 100%;
+    .has-thumbnail {
       width: 100%;
-      object-position: top left;
+
+      img {
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+        object-position: top left;
+      }
+    }
+
+    .date,
+    .txp-list-col-tag-build {
+      font-size: smaller;
     }
   }
 
-  .date,
-  .txp-list-col-tag-build {
+  thead:has(.txp-list-col-thumbnail) {
     font-size: smaller;
+
+    .txp-list-col-multi-edit {
+      border: calc(var(--border-width) * 2) solid var(--clr-brand);
+    }
+
+    .date {
+      min-width: auto;
+    }
   }
 }
 
-thead:has(.txp-list-col-thumbnail) {
-  font-size: smaller;
-
-  .txp-list-col-multi-edit {
-    border: calc(var(--border-width) * 2) solid var(--clr-brand);
+// detail pages
+.txp-layout:has(#image_details_form) {
+  @media (min-width: bp.$break2) {
+    display: grid;
+    gap: var(--base-unit);
+    grid-template-columns: 36ch auto;
+    grid-template-areas: 'heading message'
+      'sidebar replace'
+      'sidebar image'
+      'sidebar .'
+    ;
   }
 
-  .date {
-    min-width: auto;
+  #image-details-label {
+    display: none;
   }
+
+  .txp-details {
+    grid-area: sidebar;
+
+    [role="group"] {
+      display: flex;
+      flex-direction: column;
+      gap: var(--base-unit);
+    }
+  }
+
+  .txp-edit-actions a,
+  .edit-alter-thumbnail {
+   display: flex;
+   align-items: baseline;
+   gap: var(--base-unit--s);
+   [type="submit"] {
+     order: -1;
+   }
+  }
+}
+
+.image-replace {
+  grid-area: replace;
+}
+
+.fullsize-image {
+  grid-area: image;
+}
+
+#image_details_form {
+  display: contents;
+
+  section {
+    // display: contents;
+  }
+}
+
+.thumbnail-alter {
+      display: flex;
+flex-direction: column;
+gap: var(--base-unit);
+
+}
+
+.thumbnail-image {
+  display: flex;
+  [type="submit"] {
+  border: 0;
+  background: inherit;
+}
 }

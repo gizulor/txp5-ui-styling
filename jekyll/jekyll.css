@@ -916,8 +916,7 @@ button.close:hover {
 .txp-summary.expanded a:before {
   content: "\e90b";
 }
-
-.txp-option-link {
+.txp-summary .txp-option-link {
   position: absolute;
   top: 0;
   right: 0;
@@ -1249,7 +1248,16 @@ body {
 }
 
 @media (orientation: portrait) {
-  .hoz-scroll, #txp-custom-field-group, #supporting_content {
+  .txp-actions {
+    display: none;
+  }
+}
+#supporting_content {
+  grid-area: support;
+  border-inline-end: var(--base-unit--ss) solid var(--clr-brand);
+}
+@media (orientation: portrait) {
+  #supporting_content {
     display: grid;
     grid-gap: var(--base-unit--s);
     grid-auto-flow: column;
@@ -1258,20 +1266,6 @@ body {
     scroll-snap-type: x proximity;
     padding: var(--base-unit--s) var(--base-unit);
   }
-}
-@media (orientation: portrait) {
-  .txp-actions {
-    display: none;
-  }
-}
-#supporting_content {
-  grid-area: support;
-  background-color: var(--clr-brand);
-}
-#supporting_content input,
-#supporting_content select,
-#supporting_content textarea {
-  background-color: var(--clr-bg);
 }
 
 @media (orientation: landscape) {
@@ -1347,12 +1341,18 @@ body {
 
 #txp-custom-field-group {
   grid-area: custom;
-  background-color: var(--clr-brand);
+  border-inline-end: var(--base-unit--ss) solid var(--clr-brand);
 }
-#txp-custom-field-group input,
-#txp-custom-field-group select,
-#txp-custom-field-group textarea {
-  background-color: var(--clr-bg);
+@media (orientation: portrait) {
+  #txp-custom-field-group {
+    display: grid;
+    grid-gap: var(--base-unit--s);
+    grid-auto-flow: column;
+    grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    padding: var(--base-unit--s) var(--base-unit);
+  }
 }
 
 @media (orientation: portrait) {

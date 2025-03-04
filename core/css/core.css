@@ -916,8 +916,7 @@ button.close:hover {
 .txp-summary.expanded a:before {
   content: "\e90b";
 }
-
-.txp-option-link {
+.txp-summary .txp-option-link {
   position: absolute;
   top: 0;
   right: 0;

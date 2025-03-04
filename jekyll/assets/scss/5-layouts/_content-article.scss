@@ -1,43 +1,10 @@
-//@use "../../../../core/assets/scss/2-atoms/_beam.scss";
+@use "../../../../core/assets/scss/0-settings/_mixins.scss";
 $break0: 480px;
 $break1: 720px;
 $break2: 960px;
 $break3: 1280px;
 $break4: 1920px;
 
-@mixin hozScrollBg {
-  background-color: var(--clr-brand);
-
-  input,
-  select,
-  textarea {
-    background-color: var(--clr-bg);
-  }
-}
-
-.hoz-scroll {
-  @media (orientation: portrait) {
-    display: grid;
-    // width: calc(100% + var(--base-unit--b));
-    // margin-left: calc(var(--base-unit) *-1);
-    grid-gap: var(--base-unit--s);
-    grid-auto-flow: column;
-    grid-auto-columns: calc(30ch - var(--base-unit--s) * 2);
-    overflow-x: scroll;
-    scroll-snap-type: x proximity;
-    padding: var(--base-unit--s) var(--base-unit);
-    // &:before,
-    // &:after {
-    //   content: '';
-    //   width: var(--base-unit--s);
-    // }
-  }
-
-  @media (orientation: portrait) and (min-width: $break0) {
-    // width: calc(100% + var(--base-unit--b));
-    // margin-left: calc(var(--base-unit) *-1);
-  }
-}
 
 @media (orientation: portrait) {
   .txp-actions {
@@ -47,19 +14,25 @@ $break4: 1920px;
 }
 
 #supporting_content {
-  @extend .hoz-scroll;
   grid-area: support;
-  @include hozScrollBg;
+  @include mixins.hozScrollBg;
+  @media (orientation: portrait) {
+    $columns: calc(30ch - var(--base-unit--s) * 2);
+    $gap: var(--base-unit--s);
+    $padding: var(--base-unit--s) var(--base-unit);
+    @include mixins.hozScroll($columns, $gap, $padding);
+  }
+
 }
 
 @media (orientation: landscape) {
+
   #txp-image-group,
   .nav-tertiary,
   #txp-recent-group,
   #txp-custom-field-group {
     grid-area: surplus;
   }
-
 }
 
 .messagepane>* {
@@ -70,21 +43,20 @@ $break4: 1920px;
 // area names
 #pane-text {
   grid-area: pane;
-
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(36ch, 1fr));
   grid-template-areas: 'title author'
-  'excerpt body'
+    'excerpt body'
   ;
   gap: var(--base-unit);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
-
   padding: 0 var(--base-unit--s);
 
   @media (min-width: $break1) {
     padding: 0 var(--base-unit);
   }
+
   .txp-form-field {
     //grid-area: text;
   }
@@ -174,9 +146,19 @@ $break4: 1920px;
 }
 
 #txp-custom-field-group {
-  @extend .hoz-scroll;
+
+ // @extend .hoz-scroll;
+
   grid-area: custom;
-  @include hozScrollBg;
+  @include mixins.hozScrollBg;
+
+  @media (orientation: portrait) {
+    $columns: calc(30ch - var(--base-unit--s) * 2);
+    $gap: var(--base-unit--s);
+    $padding: var(--base-unit--s) var(--base-unit);
+    @include mixins.hozScroll($columns, $gap, $padding);
+  }
+
 }
 
 @media (orientation: portrait) {

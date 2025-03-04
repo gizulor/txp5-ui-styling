@@ -1,8 +1,9 @@
 @use "../../../../core/assets/scss/2-atoms/_beam.scss";
-$break1: 640px;
-$break2: 960px;
-$break3: 1280px;
-$break4: 1920px;
+@use "../0-settings/breakpoints" as bp;
+// $break1: 640px;
+// $break2: 960px;
+// $break3: 1280px;
+ //$break4: 1920px;
 
 #page-article .txp-body {
   gap: var(--base-unit);
@@ -23,7 +24,7 @@ $break4: 1920px;
     'image image'
   ;
 
-  @media (min-width: $break1) {
+  @media (min-width: bp.$break1) {
     // gap: var(--base-unit) var(--base-unit--b);
     grid-template-columns: 24ch 1fr;
     grid-template-areas: 'heading message'
@@ -36,12 +37,12 @@ $break4: 1920px;
     ;
   }
 
-  @media (min-width: $break2) {
+  @media (min-width: bp.$break2) {
     gap: var(--base-unit) var(--base-unit--b);
     grid-template-columns: 36ch 1fr;
   }
 
-  @media (min-width: $break3) {
+  @media (min-width: bp.$break3) {
     gap: var(--base-unit--b);
     grid-template-columns: 44ch 1fr 1fr;
     grid-template-areas: 'heading message message'
@@ -53,7 +54,6 @@ $break4: 1920px;
     align-content: start;
   }
 
-  @media (min-width: $break4) {}
 }
 
 // area names
@@ -84,7 +84,7 @@ $break4: 1920px;
   flex-wrap: flex;
   align-items: center;
 
-  @media (min-width: $break3) {
+  @media (min-width: bp.$break3) {
     min-height: calc(var(--base-unit) *3);
     align-items: end;
   }
@@ -105,7 +105,7 @@ $break4: 1920px;
 // .txp-dialog{
 //   grid-area: dialog;
 // }
-@media (min-width: $break1) {
+@media (min-width: bp.$break1) {
   #page-article .txp-layout-4col-alt {
     display: flex;
     flex-direction: column;

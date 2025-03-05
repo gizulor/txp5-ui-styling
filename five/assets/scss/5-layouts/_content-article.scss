@@ -220,3 +220,24 @@
   width: 100%;
   max-width: var(--type-measure);
 }
+
+.txp-form-field {
+ // @extend %beam;
+
+}
+#publish-datetime-group,
+#expires-datetime-group {
+  .txp-form-field-value {
+    display: flex;
+    gap: var(--base-unit--ss);
+    align-items: baseline;
+
+  }
+}
+
+.reset-time {
+  label{
+    max-width: 20ch;
+    text-wrap: balance;
+  }
+}

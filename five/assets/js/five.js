@@ -8,7 +8,9 @@ $(document).ready(function() {
   });
 
   // temp hack to override jqui behaviour
+  setTimeout(function() {
   $('.toggle[style]').css('display', 'flex');
+  }, 100);
 
 
   function debounce(func, timeout = 100) {

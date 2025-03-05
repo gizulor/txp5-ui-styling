@@ -3,6 +3,7 @@
   // &:empty {
   //   display: none;
   // }
+  position: relative;
 
 }
 
@@ -26,5 +27,11 @@
   &.error {
     background-color: var(--clr-error);
     color: var(--white);
+  }
+
+  .close {
+    position: absolute;
+    right: var(--base-unit);
+    top: var(--base-unit--s);
   }
 }

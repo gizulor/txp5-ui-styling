@@ -812,6 +812,10 @@ button.close:hover {
   list-style: none;
 }
 
+.messagepane {
+  position: relative;
+}
+
 .messageflash {
   padding: var(--base-unit--s) var(--base-unit);
   font-family: var(--serif);
@@ -830,6 +834,11 @@ button.close:hover {
 .messageflash.error {
   background-color: var(--clr-error);
   color: var(--white);
+}
+.messageflash .close {
+  position: absolute;
+  right: var(--base-unit);
+  top: var(--base-unit--s);
 }
 
 .txp-form-field-label {
@@ -895,11 +904,6 @@ button.close:hover {
 .txp-details .comment-annotate {
   margin-bottom: var(--base-unit--s);
 }
-.txp-details .reset-time {
-  display: flex;
-  text-wrap: balance;
-}
-
 .txp-summary a {
   text-decoration: none;
 }
